@@ -4,3 +4,7 @@
   text-decoration: none;
   box-sizing: border-box;
 }
+#app {
+  background-color: black !important;
+  height: 100vh;
+}
