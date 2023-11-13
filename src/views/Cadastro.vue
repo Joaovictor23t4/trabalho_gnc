@@ -24,7 +24,7 @@
           id="campo_cpf"
           placeholder="CPF"
           v-model="cpf"
-          @input="formatarCPF"
+          @input="formatarCPF()"
           maxlength="11"
         />
         <label for="estado_cad">Estado</label>
@@ -49,28 +49,28 @@
   </div>
 </template>
 <script>
-// export default {
-//   name: 'Cadastro',
-//   data() {
-//     return {
-//       teste: 'teste',
-//       cpf: '',
-//       cpfFormatado: '',
-//     }
-//   },
-//   methods: {
-//     teste() {
-//       console.log('teste')
-//     },
-//    formatarCPF() {
-//       // Limpar o CPF de caracteres não numéricos
-//       let cpfLimpo = this.cpf.replace(/\D/g, '');
+export default {
+  name: 'Cadastro',
+  data() {
+    return {
+      teste: 'teste',
+      cpf: '',
+      cpfFormatado: '',
+    }
+  },
+  methods: {
+    teste() {
+      console.log('teste')
+    },
+   formatarCPF() {
+      // Limpar o CPF de caracteres não numéricos
+      let cpfLimpo = this.cpf.replace(/\D/g, '');
 
-//       // Adicionar pontos e traço ao CPF
-//       this.cpfFormatado = cpfLimpo.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-//     },
-//   }
-// }
+      // Adicionar pontos e traço ao CPF
+      this.cpfFormatado = cpfLimpo.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+    },
+  }
+}
 </script>
 <style scoped>
 .form {
