@@ -12,9 +12,9 @@
                 <label for="senha">Senha</label>
                 <input type="password" name="senha" id="senha" placeholder="Senha">
                 <button type="submit" class="btn btn-primary">Entrar</button>
-                <a href="">Esqueceu sua senha?</a>
+                <router-link to="/">Esqueceu a senha?</router-link>
                 <hr>
-                <a href="">Não tem uma conta? Cadastre-se</a>
+                <router-link to="/cadastro">Não tem uma conta? Cadastre-se</router-link>
             </form>
         </div>
       </div>
@@ -40,9 +40,6 @@
     #logo {
         width: 80%;
         height: 25vh;
-    }
-    .container {
-        background-color: black;
     }
     h1 {
         color: black !important;
@@ -81,15 +78,12 @@
         margin-top: 10px;
     }
 </style>
-<script>
-export default {
-    name: 'Login',
-    data() {
-        return {
-            teste: 'teste'
-        }
-
-    },
-}
+<script setup>
+    const login = ref([]);
+    // data() {
+    //     return {
+    //         teste: 'teste'
+    //     }
+    // }
 </script>
     

@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+  import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
@@ -11,11 +11,3 @@ import { RouterLink, RouterView } from 'vue-router'
   background-color: rgb(255, 255, 255) !important;
 }
 </style>
-<script>
-
-
-
-export default {
-  components: {}
-}
-</script>
