@@ -26,7 +26,7 @@
     <div class="container text-center">
       <div class="row">
         <div class="col-sm-8">
-          <h1>Bem vindo de volta!</h1>
+          <h1>Seja bem vindo!</h1>
           <h2>Para continuar, faça login em sua conta.</h2>
           <div class="form">
             <form action="" class="form">
@@ -54,23 +54,25 @@
                   @input="formatarCPF()"
                   maxlength="11"
                 />
-                <label for="estado_cad">Estado</label>
-                <select name="estado" id="campo_estado">
-                  <option value="estado" title="Selecionar Estado">Selecionar Estado</option>
-                  <option value="PR">Paraná</option>
-                  <option value="RS">Rio Grande do Sul</option>
-                  <option value="SC">Santa Catarina</option>
-                  <option value="SP">São Paulo</option>
-                </select>
-                <label for="senha_cad">Senha</label>
-                <input type="password" name="senha" id="campo_senha" placeholder="Senha" />
-                <label for="confirmarSenha_cad">Confirmar Senha</label>
-                <input
-                  type="password"
-                  name="confirmar_senha"
-                  id="confirmarSenha_cad"
-                  placeholder="Confirmar Senha"
-                />
+                <div>
+                  <label for="estado_cad">Estado</label>
+                  <select name="estado" id="campo_estado">
+                    <option value="estado" title="Selecionar Estado">Selecionar Estado</option>
+                    <option value="PR">Paraná</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                  </select>
+                  <label for="senha_cad">Senha</label>
+                  <input type="password" name="senha" id="campo_senha" placeholder="Senha" />
+                  <label for="confirmarSenha_cad">Confirmar Senha</label>
+                  <input
+                    type="password"
+                    name="confirmar_senha"
+                    id="confirmarSenha_cad"
+                    placeholder="Confirmar Senha"
+                  />
+                </div>
               </form>
             </form>
           </div>
@@ -78,7 +80,11 @@
         <div class="col-sm-4">
           <img src="../gnc-logo.png" alt="" width="200" height="200" class="logo" />
           <h3>Já tem uma conta? Entre agora mesmo!</h3>
-          <router-link to="/login"><button type="button" class="btn btn-outline-secondary">Conectar conta!</button></router-link>
+          <router-link to="/login"
+            ><button type="button" class="btn btn-outline-secondary">
+              Conectar conta!
+            </button></router-link
+          >
         </div>
       </div>
     </div>
@@ -155,12 +161,16 @@ input {
   background-color: #000000 !important;
   border: #333333 0.5px solid !important;
   color: white !important;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .col-sm-8 {
   color: #000000 !important;
   background-color: #ffffff !important;
   box-shadow: 1px 0px 4px 0px white !important;
   border: #333333 1px solid !important;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 .form {
   display: flex;
