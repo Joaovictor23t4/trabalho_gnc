@@ -1,10 +1,12 @@
 <template>
+
 </template>
 
 <script>
-export default {
-    
-}
+import { ref } from 'vue';
+
+const referencia =  ref("Olá");
+console.log(referencia.value);
 </script>
 
 <style scoped>
