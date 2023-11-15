@@ -23,71 +23,60 @@
         <h1>Cadastre-se</h1>
       </div>
     </nav>
-    <div class="container text-center">
-      <div class="row">
-        <div class="col-sm-8">
-          <h1>Seja bem vindo!</h1>
-          <h2>Para continuar, faça login em sua conta.</h2>
-          <div class="form">
-            <form action="" class="form">
-              <form action="" method="post" class="form-conteudo">
-                <label for="nome_cad">Nome</label>
-                <input type="text" name="nome" id="campo_nome" placeholder="Nome" />
-                <label for="tel_cad">Telefone</label>
-                <input type="tel" name="telefone" id="campo_telefone" placeholder="Telefone" />
-                <label for="email_cad">Email</label>
-                <input type="email" name="email" id="campo_email" placeholder="Email" />
-                <label for="confirmEmail_cad">Confirmar Email</label>
-                <input
-                  type="email"
-                  name="confirmar_email"
-                  id="confirmarEmail_cad"
-                  placeholder="Confirmar Email"
-                />
-                <label for="cpf_cad">CPF</label>
-                <input
-                  type="text"
-                  name="cpf"
-                  id="campo_cpf"
-                  placeholder="CPF"
-                  v-model="cpf"
-                  @input="formatarCPF()"
-                  maxlength="11"
-                />
-                <div>
-                  <label for="estado_cad">Estado</label>
-                  <select name="estado" id="campo_estado">
-                    <option value="estado" title="Selecionar Estado">Selecionar Estado</option>
-                    <option value="PR">Paraná</option>
-                    <option value="RS">Rio Grande do Sul</option>
-                    <option value="SC">Santa Catarina</option>
-                    <option value="SP">São Paulo</option>
-                  </select>
-                  <label for="senha_cad">Senha</label>
-                  <input type="password" name="senha" id="campo_senha" placeholder="Senha" />
-                  <label for="confirmarSenha_cad">Confirmar Senha</label>
-                  <input
-                    type="password"
-                    name="confirmar_senha"
-                    id="confirmarSenha_cad"
-                    placeholder="Confirmar Senha"
-                  />
-                </div>
-              </form>
-            </form>
-          </div>
+  </div>
+  <div class="box">
+    <form action="" method="POST">
+      <fieldset>
+        <legend><b>Formulário de clientes</b></legend>
+        <br />
+        <div class="inputBox">
+          <input type="text" name="nome" id="nome" class="inputUser" required />
+          <label for="nome" class="labelInput">Nome Completo</label>
         </div>
-        <div class="col-sm-4">
-          <img src="../gnc-logo.png" alt="" width="200" height="200" class="logo" />
-          <h3>Já tem uma conta? Entre agora mesmo!</h3>
-          <router-link to="/login"
-            ><button type="button" class="btn btn-outline-secondary">
-              Conectar conta!
-            </button></router-link
-          >
+        <br />
+        <br />
+        <div class="inputBox">
+          <input type="text" name="email" id="email" class="inputUser" required />
+          <label for="email" class="labelInput">Email</label>
         </div>
-      </div>
-    </div>
+        <br />
+        <br />
+        <div class="inputBox">
+          <input type="password" name="senha" id="senha" class="inputUser" required />
+          <label for="senha" class="labelInput">Senha</label>
+        </div>
+        <br />
+        <br />
+        <div class="inputBox">
+          <input type="tel" name="telefone" id="telefone" class="inputUser" required />
+          <label for="telefone" class="labelInput">Telefone</label>
+        </div>
+        <label for="data_nascimento"><b>Data de Nascimento:</b></label>
+        <input type="date" name="data_nascimento" id="data_nascimento" required />
+        <br />
+        <br />
+        <br />
+        <div class="inputBox">
+          <input type="text" name="cidade" id="cidade" class="inputUser" required />
+          <label for="cidade" class="labelInput">Cidade</label>
+        </div>
+        <br />
+        <br />
+        <div class="inputBox">
+          <input type="text" name="estado" id="estado" class="inputUser" required />
+          <label for="estado" class="labelInput">Estado</label>
+        </div>
+        <br />
+        <br />
+        <div class="inputBox">
+          <input type="text" name="endereco" id="endereco" class="inputUser" required />
+          <label for="endereco" class="labelInput">Endereço</label>
+        </div>
+        <br />
+        <br />
+        <input type="submit" name="submit" id="submit" />
+      </fieldset>
+    </form>
   </div>
 </template>
 <script>
@@ -99,106 +88,102 @@ export default {
       cpf: '',
       cpfFormatado: ''
     }
-  },
-  methods: {
-    teste() {
-      console.log('teste')
-    },
-    formatarCPF() {
-      // Limpar o CPF de caracteres não numéricos
-      let cpfLimpo = this.cpf.replace(/\D/g, '')
-
-      // Adicionar pontos e traço ao CPF
-      this.cpfFormatado = cpfLimpo.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4')
-    }
   }
 }
 </script>
 <style scoped>
+.bg-body-tertiary {
+  background-color: rgb(71, 71, 71) !important;
+  color: white !important;
+}
 .container-fluid {
   display: flex !important;
   justify-content: center !important;
   align-items: flex-start !important;
-}
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-.form-conteudo,
-label,
-input {
-  display: block;
-}
-.img {
-  display: block;
 }
 .navbar-expand-lg .navbar-collapse {
   display: flex !important;
   justify-content: center !important;
   align-items: flex-start !important;
 }
-.bg-body-tertiary {
-  background-color: rgb(71, 71, 71) !important;
-  color: white !important;
+
+.box {
+  color: rgb(255, 255, 255);
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(17, 14, 16, 0.8);
+  padding: 15px;
+  border-radius: 15px;
+  width: 30%;
 }
-body {
-  background-color: black !important;
-}
-.row {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: center !important;
-  height: auto !important;
-  width: 100vh !important;
-}
-input {
-  background-color: #ffffff !important;
-}
-.col-sm-4 {
-  background-color: #000000 !important;
-  border: #333333 0.5px solid !important;
-  color: white !important;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-.col-sm-8 {
-  color: #000000 !important;
-  background-color: #ffffff !important;
-  box-shadow: 1px 0px 4px 0px white !important;
-  border: #333333 1px solid !important;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-.form {
+
+legend {
+  text-align: center;
+  border: 1px solid #ffffff;
+  padding: 10px;
+  background-color: #004b92;
+  border-radius: 8px;
+  color: #dadada;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.inputBox {
+  position: relative;
+}
+
+.inputUser {
+  background: none;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  color: white;
+  font-size: 15px;
   width: 100%;
-}
-.form input {
-  width: 100%;
-  margin-bottom: 10px;
-}
-.form label {
-  margin-bottom: 10px;
-}
-.form button {
-  width: 100%;
-  margin-top: 10px;
-}
-.container {
+  letter-spacing: 2px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  width: 90vh !important;
 }
-.btn {
-  color: white !important;
+
+.labelInput {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.inputUser:focus ~ .labelInput,
+.inputUser:valid ~ .labelInput {
+  top: -20px;
+  font-size: 12px;
+  color: #018d5c;
+}
+
+#data_nascimento {
+  border: none;
+  border-radius: 10px;
+  padding: 8px;
+  outline: none;
+  font-size: 17px;
+}
+
+#submit {
+  background-color: #b00000;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+#submit:hover {
+  background-color: #720000;
 }
 </style>
