@@ -1,7 +1,7 @@
 <template>
-    
+    <Header />
 </template>
 
-<script>
-
+<script setup>
+import Header from '../components/Header.vue'
 </script>
