@@ -38,11 +38,11 @@
             <label for="email" class="labelInput">Email</label>
           </div>
           <div class="inputBox">
-            <input type="password" name="senha" id="senha" class="inputUser" required />
+            <input type="password" name="senha" id="senha" class="inputUser" required maxlength="30"/>
             <label for="senha" class="labelInput">Senha</label>
           </div>
           <div class="inputBox">
-            <input type="tel" name="telefone" id="telefone" class="inputUser" required />
+            <input type="tel" name="telefone" id="telefone" class="inputUser" required maxlength="30"/>
             <label for="telefone" class="labelInput">Telefone</label>
           </div>
           <label for="data_nascimento"><b>Data de Nascimento:</b></label>
@@ -155,7 +155,7 @@ legend {
   border-bottom: 1px solid white;
   outline: none;
   color: white;
-  font-size: 25px;
+  font-size: 15px;
   width: 100% !important;
   letter-spacing: 2px;
   display: flex;
