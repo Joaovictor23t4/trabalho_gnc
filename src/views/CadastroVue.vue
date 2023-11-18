@@ -56,10 +56,10 @@
             <label for="rua" class="labelInput">Rua</label>
           </div>
           <div class="inputBox">
-            <input type="text" name="cpf" id="cpf" class="inputUser" required maxlength="11"/>
+            <input type="text" name="cpf" id="cpf" class="inputUser" required maxlength="11" />
             <label for="cpf" class="labelInput">CPF</label>
           </div>
-          <input type="submit" name="submit" id="submit"/>
+          <input type="submit" name="submit" id="submit" />
         </fieldset>
       </form>
     </div>
@@ -75,14 +75,21 @@
   </footer>
 </template>
 <script>
-export default {
-  name: 'Cadastro',
-  data() {
-    return {
-      teste: 'teste',
-      cpf: '',
-      cpfFormatado: ''
-    }
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const statusRequisicao = ref(null)
+const router = useRouter()
+
+const submitForm = async () => {
+  const requisicao = await axios.get('/src/server_php/cadastro.php')
+
+  statusRequisicao.value = requisicao.data
+
+  if (statusRequisicao.value === 'Sucesso') {
+    router.push('/login')
+  } else {
+    alert(statusRequisicao.value)
   }
 }
 </script>
@@ -204,7 +211,6 @@ legend {
   width: 100%;
   background-color: #212529;
   color: white;
-
 }
 
 .col-12 {
