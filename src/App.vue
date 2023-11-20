@@ -9,5 +9,6 @@
 <style>
 #app {
   background-color: rgb(255, 255, 255) !important;
+  height: 100% !important;
 }
 </style>

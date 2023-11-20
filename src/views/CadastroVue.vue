@@ -197,10 +197,11 @@ legend {
   font-size: 15px;
   cursor: pointer;
   border-radius: 10px;
+  transition: 0.25s;
 }
 
 #submit:hover {
-  background-color: #720000;
+  background-color: #9b0000;
 }
 
 .container-footer {

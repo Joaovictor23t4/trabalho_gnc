@@ -44,7 +44,9 @@
             <input type="password" name="senha" id="senha" class="inputUser" required maxlength="30"/>
             <label for="senha" class="labelInput">Senha</label>
           </div>
-            <button type="button" class="btn btn-outline-danger">Entrar</button>
+            <router-link to="/">
+              <button type="button" class="btn btn-outline-danger">Entrar</button>
+            </router-link>
             <router-link to="/">Esqueceu a senha?</router-link>
             <hr />
             <router-link to="/cadastro">Não tem uma conta? Cadastre-se</router-link>
@@ -75,6 +77,7 @@ body {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
+  margin-bottom: 100px;
 }
 .container-fluid {
   display: flex !important;
@@ -93,7 +96,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 44px;
+  padding: 40px;
 }
 .row {
   display: flex !important;
@@ -211,6 +214,7 @@ button {
   width: 100%;
   background-color: #212529;
   color: white;
+  margin-top: 93px;
 }
 </style>
 <script setup>
