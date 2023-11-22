@@ -223,4 +223,29 @@ legend {
   background-color: #212529;
   color: white;
 }
+
+@media (max-width: 425px) {
+  .box {
+    width: 100%;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .box {
+    width: 80%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .box {
+    width: 60%;
+  }
+}
+
+/* Media query for screens above 1024px (default styles) */
+@media (min-width: 1025px) {
+  .box {
+    width: 30%; /* Default width */
+  }
+}
 </style>

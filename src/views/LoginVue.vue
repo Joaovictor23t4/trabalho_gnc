@@ -216,6 +216,77 @@ button {
   color: white;
   margin-top: 93px;
 }
+@media (max-width: 425px) {
+  .container {
+    padding: 20px;
+  }
+
+  .row {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .col-sm-4, .col-sm-8 {
+    width: 100%;
+    border-radius: 0;
+  }
+  .col-sm-4 {
+    display: none;
+  }
+  .col-sm-8 {
+    border-radius: 10px;
+  }
+}
+
+/* Media query for screens between 425px and 768px */
+@media (min-width: 426px) and (max-width: 768px) {
+  .container {
+    padding: 30px;
+  }
+
+  .col-sm-4 {
+    width: 40%;
+  }
+
+  .col-sm-8 {
+    width: 60%;
+  }
+}
+
+/* Media query for screens between 768px and 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 40px;
+  }
+
+  .col-sm-4 {
+    width: 30%;
+  }
+
+  .col-sm-8 {
+    width: 70%;
+  }
+}
+
+/* Media query for screens above 1024px (default styles) */
+@media (min-width: 1025px) {
+  .container {
+    padding: 40px;
+  }
+
+  .row {
+    width: 70%;
+  }
+
+  .col-sm-4 {
+    width: 30%;
+  }
+
+  .col-sm-8 {
+    width: 70%;
+  }
+}
+
 </style>
 <script setup>
 import { ref } from 'vue'
