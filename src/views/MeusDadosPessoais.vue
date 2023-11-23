@@ -1,45 +1,98 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarTogglerDemo01"
-        aria-controls="navbarTogglerDemo01"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <img src="../gnc-logo.png" alt="" width="100" height="100" class="logo" />
       </div>
     </div>
   </nav>
-  <div class="container text-center">
-    <div class="row">
-      <div class="col col-left">
-        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-          <button type="button" class="btn btn-light">
-            <img src="../../ticket.png" alt="" class="icons" />Meus Pedidos
-          </button>
-          <button type="button" class="btn btn-danger btn-select">
-            <img src="../../jornal.png" alt="" class="icons" />Dados Pessoais
-          </button>
-          <button type="button" class="btn btn-light">
-            <img src="../../cartao.png" alt="" class="icons" />Pagamento
-          </button>
-        </div>
+  <div class="row">
+    <div class="col">
+      <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+        <button type="button" class="btn btn-light">
+          <img src="../../ticket.png" alt="" class="icons" />Meus Pedidos
+        </button>
+        <button type="button" class="btn btn-danger btn-select">
+          <img src="../../jornal.png" alt="" class="icons" />Dados Pessoais
+        </button>
+        <button type="button" class="btn btn-light">
+          <img src="../../cartao.png" alt="" class="icons" />Pagamento
+        </button>
       </div>
-      <div class="col">
-        <div class="input-group">
-          <span class="input-group-text">First and last name</span>
-          <input type="text" aria-label="First name" class="form-control" />
-          <input type="text" aria-label="Last name" class="form-control" />
-        </div>
+    </div>
+    <div class="col">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+          disabled
+        />
       </div>
-      <div class="col">Column</div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+          disabled
+        />
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Telefone</span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+          disabled
+        />
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text group-maior" id="inputGroup-sizing-default">Data de Nascimento</span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+          disabled
+        />
+      </div>
+    </div>
+    <div class="col">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Bairro</span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+          disabled
+        />
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Rua</span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+          disabled
+        />
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">CPF</span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+          disabled
+        />
+      </div>
     </div>
   </div>
   <footer>
@@ -73,8 +126,26 @@
   align-items: center;
   color: #036e46;
 }
+.mb-3 {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.input-group-text {
+  width: 85px;
+}
+.group-maior {
+  width: 165px;
+}
 .btn-select {
   color: white;
+}
+.btn-light {
+  background-color: rgb(224, 224, 224);
+  color: #036e46;
+}
+.btn-light:hover {
+  background-color: rgb(197, 197, 197);
+  color: #036e46;
 }
 .logo {
   width: 140px !important;
