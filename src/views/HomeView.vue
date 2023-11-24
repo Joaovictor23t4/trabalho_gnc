@@ -1,14 +1,14 @@
 <template>
   <Header @parametroShopping="optionSelectShopping"/>
 
-  <Carousel />
+  <CarouselHome />
 </template>
 
 <script setup>
 import { ref, onMounted, watch } from 'vue';
 import axios from 'axios';
 import Header from '../components/Header.vue';
-import Carousel from '../components/Carousel.vue'
+import CarouselHome from '../components/CarouselHome.vue'
 
 const valorShopping = ref('mueller');
 
