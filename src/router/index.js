@@ -32,7 +32,7 @@ const router = createRouter({
     {
       path: '/minha-conta/dados-pessoais',
       name: 'dados-pessoais',
-      component: () => import('../views/MeusDadosPessoais.vue')
+      component: () => import('../views/MeusDadosPessoaisVue.vue')
     },
     {
       path: '/tela-filme',
