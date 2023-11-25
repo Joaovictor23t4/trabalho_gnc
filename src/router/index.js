@@ -35,6 +35,11 @@ const router = createRouter({
       component: () => import('../views/MeusDadosPessoaisVue.vue')
     },
     {
+      path: '/minha-conta/esqueci-senha',
+      name: 'esqueci-senha',
+      component: () => import('../views/EsqueciSenha.vue')
+    },
+    {
       path: '/tela-filme',
       name: 'tela-filme',
       component: () => import('../views/TelaFilme.vue')

@@ -9,7 +9,7 @@
     </nav>
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid nav-cad">
-        <h1>Bem vindo de volta!</h1>
+        <h1>Esqueceu a senha?</h1>
       </div>
     </nav>
   </div>
@@ -17,12 +17,14 @@
     <div class="row">
       <div class="col-sm-4">
         <img src="../gnc-logo.png" alt="" id="logo" />
-        <h3>Não tem uma conta? Crie agora mesmo!</h3>
-        <button type="button" class="btn btn-outline-secondary">Criar conta!</button>
+        <h3>Voltar para o seu login</h3>
+        <router-link to="/login">
+            <button type="button" class="btn btn-outline-secondary">Conectar-se</button>
+        </router-link>
       </div>
       <div class="col-sm-8">
-        <h1>Bem vindo de volta!</h1>
-        <h2>Para continuar, faça login em sua conta.</h2>
+        <h1>Esqueceu a senha?</h1>
+        <h2>Para continuar, adicione seu email para confirmarmos a nova senha.</h2>
         <div class="form">
           <form action="">
             <div class="inputBox">
@@ -30,13 +32,12 @@
               <label for="email" class="labelInput">Email</label>
             </div>
             <div class="inputBox">
-            <input type="password" name="senha" id="senha" class="inputUser" required maxlength="30"/>
-            <label for="senha" class="labelInput">Senha</label>
+            <input type="email" name="confirmar-email" id="confirmar-email" class="inputUser" required maxlength="30"/>
+            <label for="confirmar-email" class="labelInput">Confirmar email</label>
           </div>
             <router-link to="/">
-              <button type="button" class="btn btn-outline-danger">Entrar</button>
+              <button type="button" class="btn btn-outline-danger">Enviar</button>
             </router-link>
-            <router-link to="/minha-conta/esqueci-senha">Esqueceu a senha?</router-link>
             <hr />
             <router-link to="/cadastro">Não tem uma conta? Cadastre-se</router-link>
           </form>
