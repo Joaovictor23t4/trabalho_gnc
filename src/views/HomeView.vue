@@ -2,26 +2,29 @@
   <Header @parametroShopping="optionSelectShopping"/>
 
   <CarouselHome />
+
+  <CarouselSecundario />
 </template>
 
 <script setup>
 import { ref, onMounted, watch } from 'vue';
 import axios from 'axios';
 import Header from '../components/Header.vue';
-import CarouselHome from '../components/CarouselHome.vue'
+import CarouselHome from '../components/CarouselHome.vue';
+import CarouselSecundario from '../components/CarouselSecundario.vue'
 
 const valorShopping = ref('mueller');
 
 function optionSelectShopping(value) {
   valorShopping.value = value;
-  // console.log(valorShopping.value);
+  console.log(valorShopping.value);
 }
 
 const valorApi = ref([]);
 
 
 onMounted( async () => {
-    let response = await axios.get(`https://api-content.ingresso.com/v0/sessions/city/16/theater/${valorShopping.value === "mueller" ? "146" : "851"}?partnership=joaovictorpr`);
+    let response = await axios.get(`https://api-content.ingresso.com/v0/sessions/city/16/theater/146?partnership=joaovictorpr`);
 
     valorApi.value = response.data;
 
@@ -44,4 +47,7 @@ watch(valorShopping, async (newValue, oldValue) => {
 </script>
 
 <style scoped>
+body {
+  background-color: #0A1237;
+}
 </style>

@@ -81,6 +81,8 @@ function handleSelectChange(event) {
 }
 
 #container-shopping > select {
+  position: relative;
+  bottom: 10px;
   border: none;
   background: transparent;
   outline: none;
@@ -104,6 +106,8 @@ function handleSelectChange(event) {
 }
 
 #btnUsuario {
+  position: relative;
+  bottom: 15px;
   margin-right: 10px;
   border: none;
   outline: none;
