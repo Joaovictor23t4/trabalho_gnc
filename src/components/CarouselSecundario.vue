@@ -8,35 +8,56 @@
             <p>Em Breve</p>
         </div>
     </div>
-<!-- <Carousel v-bind="settings">
-        <Slide v-for="slide in 10" :key="slide">
-        <div class="carousel__item">{{ slide }}</div>
-        </Slide>
-
-        <template #addons>
-        <Navigation />
-        </template>
-    </Carousel> -->
   </div>
+
+    <div id="containerCarousel">
+        <Carousel v-bind="settings">
+            <Slide v-for="(element, elementIndex) in movies" :key="elementIndex">
+                <div class="container-slider">
+                    <div class="containerImages">
+                        <img :src="element.images[0].url" alt="" class="imagesFilms">
+                    </div>
+                    
+                    <div class="containerNameFilms">
+                        <p>{{ element.title }}</p>
+                    </div>
+                </div>
+            </Slide>
+            <!-- <template #addons>
+            <Pagination />
+            </template> -->
+        </Carousel>
+    </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
 const settings = ref({
-    itemsToShow: 5,
+    itemsToShow: 3,
     snapAlign: 'center'
 })
 
+const option = ref('cartaz');
 const movies = ref([]);
+
+onMounted(async () => {
+    let listaFilmes = await axios.get('https://api-content.ingresso.com/v0/templates/nowplaying/16?partnership=joaovictorpr');
+
+    movies.value = listaFilmes.data;
+
+    console.log(movies.value);
+});
 </script>
 
 <style scoped>
 #container {
     display: grid;
-    grid-template-columns: 1.2fr 4.5fr 1fr;
+    grid-template-columns: 1fr 4.6fr 1fr;
+    margin-bottom: 20px;
 }
 #periodOption {
     display: flex;
@@ -60,5 +81,31 @@ const movies = ref([]);
 #emCartazPeriod, #emBrevePeriod {
     font-weight: bold;
     font-size: 26px;
+    color: #FDFDFD;
+}
+#containerCarousel {
+    display: flex;
+    justify-content: center;
+}
+
+.containerImages {
+    width: 192px;
+    height: 282px;
+}
+
+.imagesFilms {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+
+li {
+    width: 252px!important;
+}
+
+.container-slider {
+    display: flex;
+    flex-direction: column;
 }
 </style>

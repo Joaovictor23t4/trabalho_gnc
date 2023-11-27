@@ -17,7 +17,7 @@ const valorShopping = ref('mueller');
 
 function optionSelectShopping(value) {
   valorShopping.value = value;
-  console.log(valorShopping.value);
+  // console.log(valorShopping.value);
 }
 
 const valorApi = ref([]);
@@ -28,7 +28,7 @@ onMounted( async () => {
 
     valorApi.value = response.data;
 
-    console.log(valorApi.value);
+    // console.log(valorApi.value);
 });
 
 watch(valorShopping, async (newValue, oldValue) => {
