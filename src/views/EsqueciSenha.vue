@@ -19,10 +19,10 @@
         <img src="../gnc-logo.png" alt="" id="logo" />
         <h3>Voltar para o seu login</h3>
         <router-link to="/login">
-            <button type="button" class="btn btn-outline-secondary">Conectar-se</button>
+          <button type="button" class="btn btn-outline-secondary">Conectar-se</button>
         </router-link>
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-8 bg-dark">
         <h1>Esqueceu a senha?</h1>
         <h2>Para continuar, adicione seu email para confirmarmos a nova senha.</h2>
         <div class="form">
@@ -32,9 +32,16 @@
               <label for="email" class="labelInput">Email</label>
             </div>
             <div class="inputBox">
-            <input type="email" name="confirmar-email" id="confirmar-email" class="inputUser" required maxlength="30"/>
-            <label for="confirmar-email" class="labelInput">Confirmar email</label>
-          </div>
+              <input
+                type="email"
+                name="confirmar-email"
+                id="confirmar-email"
+                class="inputUser"
+                required
+                maxlength="30"
+              />
+              <label for="confirmar-email" class="labelInput">Confirmar email</label>
+            </div>
             <router-link to="/">
               <button type="button" class="btn btn-outline-danger">Enviar</button>
             </router-link>
@@ -45,15 +52,7 @@
       </div>
     </div>
   </div>
-  <footer>
-    <div class="container-footer">
-      <div class="row">
-        <div class="col-12">
-          <p class="text-center">© 2023 GNC - Todos os direitos reservados</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <FooterCopy />
 </template>
 
 <style scoped>
@@ -103,7 +102,7 @@ h1 {
 }
 
 .col-sm-4 {
-  background-color: #000000 !important;
+  background-color: #242424 !important;
   border: #333333 0.5px solid !important;
   border-bottom-left-radius: 10px !important;
   border-top-left-radius: 10px !important;
@@ -111,7 +110,7 @@ h1 {
 }
 .col-sm-8 {
   color: #a5a5a5 !important;
-  background-color: #272727 !important;
+  background-color: rgb(71, 71, 71) !important;
   box-shadow: 1px 0px 4px 0px white !important;
   border-bottom-right-radius: 10px !important;
   border-top-right-radius: 10px !important;
@@ -178,7 +177,8 @@ button {
   white-space: pre-line;
   margin: 30px 0 30px 0;
 }
-#email, #senha {
+#email,
+#senha {
   color: white !important;
 }
 
@@ -196,11 +196,11 @@ button {
   font-size: 12px;
   color: #018d5c;
 }
-.container-footer {
+footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px;
+  height: 120px;
   width: 100%;
   background-color: #212529;
   color: white;
@@ -216,7 +216,8 @@ button {
     width: 100%;
   }
 
-  .col-sm-4, .col-sm-8 {
+  .col-sm-4,
+  .col-sm-8 {
     width: 100%;
     border-radius: 0;
   }
@@ -276,11 +277,14 @@ button {
     width: 70%;
   }
 }
-
 </style>
-<script setup>
-import { ref } from 'vue'
-
-const login = ref([])
+<script>
+import FooterCopy from './components/FooterCopy.vue';
+export default {
+  name: 'EsqueciSenha',
+  components: {
+    FooterCopy,
+  },
+}
 </script>
     

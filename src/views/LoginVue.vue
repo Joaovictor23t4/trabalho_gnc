@@ -44,15 +44,7 @@
       </div>
     </div>
   </div>
-  <footer>
-    <div class="container-footer">
-      <div class="row">
-        <div class="col-12">
-          <p class="text-center">© 2023 GNC - Todos os direitos reservados</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <FooterCopy />
 </template>
 
 <style scoped>
@@ -278,8 +270,11 @@ button {
 
 </style>
 <script setup>
-import { ref } from 'vue'
-
-const login = ref([])
+import FooterCopy from './components/FooterCopy.vue';
+export default {
+  components: {
+    FooterCopy,
+  },
+};
 </script>
     

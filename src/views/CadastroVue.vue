@@ -53,15 +53,7 @@
       </form>
     </div>
   </div>
-  <footer>
-    <div class="container-footer">
-      <div class="row">
-        <div class="col-12">
-          <p class="text-center">© 2023 GNC - Todos os direitos reservados</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <FooterCopy />
 </template>
 <script>
 import { ref } from 'vue'
@@ -238,3 +230,12 @@ legend {
   }
 }
 </style>
+<script>
+import FooterCopy from './components/FooterCopy.vue'
+export default {
+  name: 'Cadastro',
+  components: {
+    FooterCopy,
+  },
+}
+</script>
