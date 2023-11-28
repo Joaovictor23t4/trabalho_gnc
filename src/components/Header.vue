@@ -20,6 +20,11 @@
           </div>
         </div>
         <div id="bloco2">
+              <div id="container-search">
+                <input type="search" placeholder="Pesquisar filme" id="inSearch"/>
+             </div>
+        </div>
+        <div id="bloco3">
           <div id="container-usuario">
             <span>
               <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -30,28 +35,7 @@
             </span>
             <button id="btnUsuario">Entre ou cadastre-se</button>
           </div>
-            <div id="container-btn-search">
-              <button class="btn btn-outline-success" type="click">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  fill="currentColor"
-                  class="bi bi-search"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-                  />
-                  <i class="bi bi-search"></i>
-                </svg>
-              </button>
-
-              <!-- <div id="container-search">
-                <input type="search" placeholder="Pesquisar filme" id="inSearch"/>
-              </div> -->
-            </div>
-        </div>
+          </div>
       </div>
     </nav>
   </header>
@@ -80,7 +64,8 @@ function handleSelectChange(event) {
 #nav-principal {
   display: flex;
   justify-content: space-around;
-  background-color: rgba(33,37,41,255);
+  align-items: center;
+  background-color: #161F2E;
 }
 
 #bloco1 {
@@ -89,13 +74,15 @@ function handleSelectChange(event) {
   gap: 20px;
 }
 
-#bloco2 {
+#bloco3 {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 #container-shopping > select {
+  position: relative;
+  bottom: 10px;
   border: none;
   background: transparent;
   outline: none;
@@ -106,11 +93,11 @@ function handleSelectChange(event) {
 
 #container-shopping > select > option {
   color: #000;
-  margin-right: 200px;
 }
 
 #container-shopping > span {
   color: #ffffffe0;
+  margin-left: 20px;
 }
 
 #container-usuario > span {
@@ -119,6 +106,8 @@ function handleSelectChange(event) {
 }
 
 #btnUsuario {
+  position: relative;
+  bottom: 15px;
   margin-right: 10px;
   border: none;
   outline: none;
@@ -126,22 +115,19 @@ function handleSelectChange(event) {
   color: #fdfdfd;
 }
 
-#container-search {
-  display: flex;
-  justify-content: flex-end;
-}
-
 #inSearch {
   border: none;
   outline: none;
-  width: 200px;
+  width: 300px;
   height: 35px;
-  border-radius: 5px;
-  padding-left: 4px;
+  border-radius: 15px;
+  padding: 0 16px;
+  background-color: #2A364A;
+  color: #424F64;
 }
 
 #inSearch::placeholder {
-  padding: 2px;
+  color: #424F64;
 }
 
 #logo {
