@@ -12,12 +12,12 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/Login.vue')
+      component: () => import('../views/LoginVue.vue')
     },
     {
       path: '/cadastro',
       name: 'cadastro',
-      component: () => import('../views/Cadastro.vue')
+      component: () => import('../views/CadastroVue.vue')
     },
     {
       path: '/minha-conta',
@@ -32,7 +32,12 @@ const router = createRouter({
     {
       path: '/minha-conta/dados-pessoais',
       name: 'dados-pessoais',
-      component: () => import('../views/MeusDadosPessoais.vue')
+      component: () => import('../views/MeusDadosPessoaisVue.vue')
+    },
+    {
+      path: '/minha-conta/esqueci-senha',
+      name: 'esqueci-senha',
+      component: () => import('../views/EsqueciSenha.vue')
     },
     {
       path: '/tela-filme',

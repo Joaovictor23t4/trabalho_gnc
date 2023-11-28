@@ -20,12 +20,12 @@
       <div class="col col-esquerda">
         <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
           <router-link to="/minha-conta/meus-pedidos" class="router">
-            <button type="button" class="btn btn-danger btn-select">
+            <button type="button" class="btn btn-light">
               <img src="../../ticket.png" alt="" class="icons" />Meus Pedidos
             </button>
           </router-link>
           <router-link to="/minha-conta/dados-pessoais" class="router">
-            <button type="button" class="btn btn-light btn-select">
+            <button type="button" class="btn btn-danger btn-select">
               <img src="../../jornal.png" alt="" class="icons" />Dados Pessoais
             </button>
           </router-link>
@@ -37,10 +37,79 @@
         </div>
       </div>
       <div class="col col-meio">
-        <h1 v-if="pedidos > 0">Você tem os seguintes pedidos:</h1>
-        <h1 v-else>Você ainda não tem pedidos :(</h1>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            disabled
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            disabled
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Telefone</span>
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            disabled
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text group-maior" id="inputGroup-sizing-default">Data Nasc</span>
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            disabled
+          />
+        </div>
       </div>
-      <div class="col col-direita"></div>
+      <div class="col col-direita">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Bairro</span>
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            disabled
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">Rua</span>
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            disabled
+          />
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default">CPF</span>
+          <input
+            type="text"
+            class="form-control cpf"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            disabled
+          />
+        </div>
+      </div>
     </div>
   </main>
   <Footer />
@@ -57,7 +126,6 @@
 .col-meio,
 .col-direita {
   padding: 0 10px !important;
-  height: 100% !important;
 }
 .icons {
   width: 40px;
@@ -66,9 +134,6 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-}
-main {
-  min-height: 500px !important;
 }
 .btn {
   padding: 10px;
@@ -143,8 +208,9 @@ main {
 </style>
 <script>
 import Footer from './components/FooterVue.vue'
+import FooterCopy from './components/FooterCopy.vue'
 export default {
-  name: 'MeusPedidos',
+  name: 'MeusDadosPessoais',
   components: {
     Footer,
     FooterCopy,
