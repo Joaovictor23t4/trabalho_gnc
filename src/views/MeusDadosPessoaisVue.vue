@@ -10,7 +10,7 @@
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <a href="/">
-          <img src="../gnc-logo.png" alt="" width="100" height="100" class="logo" id="topo" />
+          <img src="../assets/image/gnc-logo.png" alt="" width="100" height="100" class="logo" id="topo" />
         </a>
       </div>
     </div>

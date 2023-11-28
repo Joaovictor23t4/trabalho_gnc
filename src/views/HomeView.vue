@@ -17,7 +17,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <a class="navbar-brand" href="#"
-          ><img src="../gnc-logo.png" alt="" width="100" height="100"
+          ><img src="../assets/image/gnc-logo.png" alt="" width="100" height="100"
         /></a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
