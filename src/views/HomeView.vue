@@ -3,7 +3,7 @@
 
   <CarouselHome />
 
-  <CarouselSecundario />
+  <ListCard />
 </template>
 
 <script setup>
@@ -11,7 +11,7 @@ import { ref, onMounted, watch } from 'vue';
 import axios from 'axios';
 import Header from '../components/Header.vue';
 import CarouselHome from '../components/CarouselHome.vue';
-import CarouselSecundario from '../components/CarouselSecundario.vue'
+import ListCard from '../components/ListCard.vue'
 
 const valorShopping = ref('mueller');
 

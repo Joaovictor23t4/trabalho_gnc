@@ -93,7 +93,7 @@ const hover = ref({ showElement: false })
 }
 .card-img {
   width: 100%;
-  border-radius: 20px
+  border-radius: 1.25rem;
 }
 
 .hidden-element {
