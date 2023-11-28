@@ -10,7 +10,7 @@
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <a href="/">
-          <img src="../gnc-logo.png" alt="" width="100" height="100" class="logo" id="topo" />
+          <img src="/src/assets/images/gnc-logo.png" alt="" width="100" height="100" class="logo" id="topo" />
         </a>
       </div>
     </div>
@@ -21,17 +21,17 @@
         <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
           <router-link to="/minha-conta/meus-pedidos" class="router">
             <button type="button" class="btn btn-light">
-              <img src="../../ticket.png" alt="" class="icons" />Meus Pedidos
+              <img src="/src/assets/images/ticket.png" alt="" class="icons" />Meus Pedidos
             </button>
           </router-link>
           <router-link to="/minha-conta/dados-pessoais" class="router">
             <button type="button" class="btn btn-danger btn-select">
-              <img src="../../jornal.png" alt="" class="icons" />Dados Pessoais
+              <img src="/src/assets/images/jornal.png" alt="" class="icons" />Dados Pessoais
             </button>
           </router-link>
           <router-link to="/pagamento" class="router">
             <button type="button" class="btn btn-light">
-              <img src="../../cartao.png" alt="" class="icons" />Pagamento
+              <img src="/src/assets/images/cartao.png" alt="" class="icons" />Pagamento
             </button>
           </router-link>
         </div>
@@ -207,13 +207,6 @@
 }
 </style>
 <script>
-import Footer from './components/FooterVue.vue'
-import FooterCopy from './components/FooterCopy.vue'
-export default {
-  name: 'MeusDadosPessoais',
-  components: {
-    Footer,
-    FooterCopy,
-  },
-}
+import Footer from '../components/FooterVue.vue'
+import FooterCopy from '../components/FooterCopy.vue'
 </script>

@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg bg-dark">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <img src="../gnc-logo.png" alt="" width="100" height="100" class="logo" />
+          <img src="/src/assets/images/gnc-logo.png" alt="" width="100" height="100" class="logo" />
         </div>
       </div>
     </nav>
@@ -16,7 +16,7 @@
   <div class="container text-center">
     <div class="row">
       <div class="col-sm-4">
-        <img src="../gnc-logo.png" alt="" id="logo" />
+        <img src="/src/assets/images/gnc-logo.png" alt="" id="logo" />
         <h3>Voltar para o seu login</h3>
         <router-link to="/login">
           <button type="button" class="btn btn-outline-secondary">Conectar-se</button>
@@ -279,6 +279,6 @@ footer {
 }
 </style>
 <script>
-import FooterCopy from './components/FooterCopy.vue';
+import FooterCopy from '../components/FooterCopy.vue';
 </script>
     

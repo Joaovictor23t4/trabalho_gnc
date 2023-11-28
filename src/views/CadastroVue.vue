@@ -231,11 +231,5 @@ legend {
 }
 </style>
 <script>
-import FooterCopy from './components/FooterCopy.vue'
-export default {
-  name: 'Cadastro',
-  components: {
-    FooterCopy,
-  },
-}
+import FooterCopy from '../components/FooterCopy.vue'
 </script>
