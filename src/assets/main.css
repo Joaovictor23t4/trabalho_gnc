@@ -3,8 +3,8 @@
   padding: 0;
   text-decoration: none;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 #app {
-  background-color: black !important;
   height: 100vh;
 }
