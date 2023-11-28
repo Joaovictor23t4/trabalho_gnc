@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg bg-dark">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <img src="../gnc-logo.png" alt="" width="100" height="100" class="logo" />
+          <img src="/src/assets/images/gnc-logo.png" alt="" width="100" height="100" class="logo" />
         </div>
       </div>
     </nav>
@@ -16,7 +16,7 @@
   <div class="container text-center">
     <div class="row">
       <div class="col-sm-4">
-        <img src="../gnc-logo.png" alt="" id="logo" />
+        <img src="/src/assets/images/gnc-logo.png " alt="" id="logo" />
         <h3>Não tem uma conta? Crie agora mesmo!</h3>
         <button type="button" class="btn btn-outline-secondary">Criar conta!</button>
       </div>
@@ -46,6 +46,10 @@
   </div>
   <FooterCopy />
 </template>
+
+<script setup>
+  import FooterCopy from '../components/FooterCopy.vue';
+</script>
 
 <style scoped>
 body {
@@ -267,14 +271,5 @@ button {
     width: 70%;
   }
 }
-
 </style>
-<script setup>
-import FooterCopy from './components/FooterCopy.vue';
-export default {
-  components: {
-    FooterCopy,
-  },
-};
-</script>
     

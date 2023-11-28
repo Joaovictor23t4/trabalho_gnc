@@ -50,7 +50,7 @@
           <h3>Referências</h3>
         </li>
         <li>
-          <a href="#topo" class="footer-link">Voltar ao topo ▲</a>
+          <a href="#header" class="footer-link">Voltar ao topo ▲</a>
         </li>
         <li>
           <a href="https://www.ingresso.com" class="footer-link" target="_blank">Ingressos.com</a>
@@ -97,10 +97,12 @@ footer {
   background-color: #202020;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
   padding: 3rem 3.5rem;
 }
 #footer_contacts h1 {
   margin-bottom: 0.75rem;
+  margin: 0 auto;
 }
 #footer_social_media {
   display: flex;
@@ -157,8 +159,6 @@ iframe {
   border: none;
 }
 </style>
-<script>
-export default {
-  name: 'Footer'
-}
+<script setup>
+
 </script>

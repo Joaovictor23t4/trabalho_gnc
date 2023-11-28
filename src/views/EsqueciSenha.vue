@@ -280,11 +280,5 @@ footer {
 </style>
 <script>
 import FooterCopy from './components/FooterCopy.vue';
-export default {
-  name: 'EsqueciSenha',
-  components: {
-    FooterCopy,
-  },
-}
 </script>
     

@@ -196,11 +196,5 @@ iframe {
 }
 </style>
 <script>
-import Footer from './components/FooterVue.vue';
-export default {
-  name: 'TelaFilme',
-  components: {
-    Footer,
-  },
-};
+import Footer from '../components/FooterVue.vue';
 </script>

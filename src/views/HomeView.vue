@@ -4,6 +4,10 @@
   <CarouselHome />
 
   <ListCard />
+
+  <Footer />
+
+  <FooterCopy />
 </template>
 
 <script setup>
@@ -11,7 +15,9 @@ import { ref, onMounted, watch } from 'vue';
 import axios from 'axios';
 import Header from '../components/Header.vue';
 import CarouselHome from '../components/CarouselHome.vue';
-import ListCard from '../components/ListCard.vue'
+import ListCard from '../components/ListCard.vue';
+import Footer from '../components/FooterVue.vue'
+import FooterCopy from '../components/FooterCopy.vue';
 
 const valorShopping = ref('mueller');
 
@@ -47,7 +53,4 @@ watch(valorShopping, async (newValue, oldValue) => {
 </script>
 
 <style scoped>
-body {
-  background-color: #0A1237;
-}
 </style>

@@ -20,11 +20,6 @@ const router = createRouter({
       component: () => import('../views/CadastroVue.vue')
     },
     {
-      path: '/minha-conta',
-      name: 'minha-conta',
-      component: () => import('../views/MinhaConta.vue')
-    },
-    {
       path: '/minha-conta/meus-pedidos',
       name: 'meus-pedidos',
       component: () => import('../views/MeusPedidos.vue')
@@ -35,7 +30,7 @@ const router = createRouter({
       component: () => import('../views/MeusDadosPessoaisVue.vue')
     },
     {
-      path: '/minha-conta/esqueci-senha',
+      path: '/esqueci-senha',
       name: 'esqueci-senha',
       component: () => import('../views/EsqueciSenha.vue')
     },

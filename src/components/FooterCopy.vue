@@ -26,7 +26,5 @@ p {
 }
 </style>
 <script>
-export default {
-  name: 'FooterCopy'
-}
+
 </script>
