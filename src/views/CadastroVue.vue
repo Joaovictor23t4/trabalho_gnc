@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg bg-dark">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <img src="../assets/image/gnc-logo.png" alt="" width="100" height="100" class="logo" />
+          <img src="../assets/images/gnc-logo.png" alt="" width="100" height="100" class="logo" />
         </div>
       </div>
     </nav>
@@ -55,25 +55,6 @@
   </div>
   <FooterCopy />
 </template>
-<script>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-
-const statusRequisicao = ref(null)
-const router = useRouter()
-
-const submitForm = async () => {
-  const requisicao = await axios.get('/src/server_php/cadastro.php')
-
-  statusRequisicao.value = requisicao.data
-
-  if (statusRequisicao.value === 'Sucesso') {
-    router.push('/login')
-  } else {
-    alert(statusRequisicao.value)
-  }
-}
-</script>
 <style scoped>
 .bg-body-tertiary {
   background-color: rgb(71, 71, 71) !important;
@@ -230,12 +211,22 @@ legend {
   }
 }
 </style>
-<script>
-import FooterCopy from './components/FooterCopy.vue'
-export default {
-  name: 'Cadastro',
-  components: {
-    FooterCopy,
-  },
+<script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import FooterCopy from '../components/FooterCopy.vue'
+const statusRequisicao = ref(null)
+const router = useRouter()
+
+const submitForm = async () => {
+  const requisicao = await axios.get('/src/server_php/cadastro.php')
+
+  statusRequisicao.value = requisicao.data
+
+  if (statusRequisicao.value === 'Sucesso') {
+    router.push('/login')
+  } else {
+    alert(statusRequisicao.value)
+  }
 }
 </script>

@@ -9,9 +9,13 @@
 </template>
 <style scoped>
 footer {
-  background-color: #036e46;
+  background-color: #2c2c2c;
   color: white;
   padding: 20px 0 20px 0;
+  min-height: 173px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .row {
   --bs-gutter-x: none !important;

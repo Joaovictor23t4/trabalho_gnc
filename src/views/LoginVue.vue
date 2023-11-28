@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg bg-dark">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <img src="../assets/image/gnc-logo.png" alt="" width="100" height="100" class="logo" />
+          <img src="../assets/images/gnc-logo.png" alt="" width="100" height="100" class="logo" />
         </div>
       </div>
     </nav>
@@ -16,7 +16,7 @@
   <div class="container text-center">
     <div class="row">
       <div class="col-sm-4">
-        <img src="../gnc-logo.png" alt="" id="logo" />
+        <img src="../assets/images/gnc-logo.png" alt="" id="logo" />
         <h3>Não tem uma conta? Crie agora mesmo!</h3>
         <button type="button" class="btn btn-outline-secondary">Criar conta!</button>
       </div>
@@ -58,7 +58,6 @@ body {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  margin-bottom: 100px;
 }
 .container-fluid {
   display: flex !important;
@@ -73,11 +72,12 @@ body {
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding-top: 100px !important;
+  padding-bottom: 100px !important;
 }
 .row {
   display: flex !important;
@@ -92,7 +92,6 @@ body {
 h1 {
   color: white !important;
 }
-
 .col-sm-4 {
   background-color: #000000 !important;
   border: #333333 0.5px solid !important;
@@ -187,16 +186,6 @@ button {
   font-size: 12px;
   color: #018d5c;
 }
-.container-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-  width: 100%;
-  background-color: #212529;
-  color: white;
-  margin-top: 93px;
-}
 @media (max-width: 425px) {
   .container {
     padding: 20px;
@@ -270,11 +259,7 @@ button {
 
 </style>
 <script setup>
-import FooterCopy from './components/FooterCopy.vue';
-export default {
-  components: {
-    FooterCopy,
-  },
-};
+import FooterCopy from '../components/FooterCopy.vue';
+
 </script>
     

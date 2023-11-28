@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg bg-dark">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <img src="../assets/image/gnc-logo.png" alt="" width="100" height="100" class="logo" />
+          <img src="../assets/images/gnc-logo.png" alt="" width="100" height="100" class="logo" />
         </div>
       </div>
     </nav>
@@ -16,7 +16,7 @@
   <div class="container text-center">
     <div class="row">
       <div class="col-sm-4">
-        <img src="../gnc-logo.png" alt="" id="logo" />
+        <img src="../assets/images/gnc-logo.png" alt="" id="logo" />
         <h3>Voltar para o seu login</h3>
         <router-link to="/login">
           <button type="button" class="btn btn-outline-secondary">Conectar-se</button>
@@ -66,7 +66,6 @@ body {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  margin-bottom: 100px;
 }
 .container-fluid {
   display: flex !important;
@@ -85,7 +84,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding-top: 112px !important;
+  padding-bottom: 112px !important;
 }
 .row {
   display: flex !important;
@@ -102,7 +102,7 @@ h1 {
 }
 
 .col-sm-4 {
-  background-color: #242424 !important;
+  background-color: #000000 !important;
   border: #333333 0.5px solid !important;
   border-bottom-left-radius: 10px !important;
   border-top-left-radius: 10px !important;
@@ -110,7 +110,7 @@ h1 {
 }
 .col-sm-8 {
   color: #a5a5a5 !important;
-  background-color: rgb(71, 71, 71) !important;
+  background-color: #272727 !important;
   box-shadow: 1px 0px 4px 0px white !important;
   border-bottom-right-radius: 10px !important;
   border-top-right-radius: 10px !important;
@@ -196,16 +196,6 @@ button {
   font-size: 12px;
   color: #018d5c;
 }
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 120px;
-  width: 100%;
-  background-color: #212529;
-  color: white;
-  margin-top: 93px;
-}
 @media (max-width: 425px) {
   .container {
     padding: 20px;
@@ -229,7 +219,7 @@ footer {
   }
 }
 
-/* Media query for screens between 425px and 768px */
+/* Media query for screens between 426px and 768px */
 @media (min-width: 426px) and (max-width: 768px) {
   .container {
     padding: 30px;
@@ -244,7 +234,7 @@ footer {
   }
 }
 
-/* Media query for screens between 768px and 1024px */
+/* Media query for screens between 769px and 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
   .container {
     padding: 40px;
@@ -278,13 +268,7 @@ footer {
   }
 }
 </style>
-<script>
-import FooterCopy from './components/FooterCopy.vue';
-export default {
-  name: 'EsqueciSenha',
-  components: {
-    FooterCopy,
-  },
-}
+<script setup>
+import FooterCopy from '../components/FooterCopy.vue';
 </script>
     
