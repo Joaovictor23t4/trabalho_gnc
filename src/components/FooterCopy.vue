@@ -28,6 +28,35 @@ footer {
 p {
   font-size: 18px;
 }
+@media only screen and (max-width: 425px) {
+  footer {
+    padding: 10px 0;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+/* Tablet (768px) */
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  footer {
+    padding: 15px 0;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  footer {
+    padding: 15px 0;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
 </style>
 <script>
 export default {

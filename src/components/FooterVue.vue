@@ -1,8 +1,15 @@
 <template>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <footer>
     <div id="footer_content">
       <div id="footer_contacts">
-        <img src="../../gnc-logo.png" alt="" id="logofooter" />
+        <img src="../assets/images/gnc-logo.png" alt="" id="logofooter" />
         <p>Nossas redes sociais</p>
         <div id="footer_social_media">
           <a href="https://www.instagram.com/gnccinemas/" class="footer-link" id="instagram">
@@ -155,6 +162,75 @@ iframe {
   width: 200px;
   height: 200px;
   border: none;
+}
+/* Mobile (425px) */
+@media only screen and (max-width: 425px) {
+  #footer_content {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+
+  #footer_contacts {
+    text-align: center;
+  }
+
+  #footer_contacts img {
+    width: 120px;
+    height: 120px;
+  }
+
+  #footer_social_media {
+    justify-content: center;
+  }
+
+  .footer-list {
+    text-align: center;
+  }
+
+  iframe {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* Tablet (768px) */
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  #footer_content {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem;
+  }
+
+  #footer_contacts img {
+    width: 150px;
+    height: 150px;
+  }
+
+  iframe {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* Desktop (1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  #footer_content {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2rem;
+  }
+
+  #footer_contacts img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .footer-list {
+    text-align: center;
+  }
+
+  iframe {
+    width: 100%;
+    height: 200px;
+  }
 }
 </style>
 <script>

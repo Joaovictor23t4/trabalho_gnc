@@ -131,6 +131,109 @@ function handleSelectChange(event) {
 }
 
 #logo {
-    width: 100px;
+  width: 100px;
+}
+
+@media only screen and (max-width: 425px) {
+  #bloco1 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #container-shopping {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+  }
+
+  #container-shopping > select {
+    width: 100%;
+  }
+
+  #bloco2 {
+    display: none;
+  }
+
+  #bloco3 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #btnUsuario {
+    bottom: 0;
+    margin-right: 0;
+  }
+}
+
+/* Tablet (768px) */
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  #nav-principal {
+    flex-direction: column;
+  }
+
+  #bloco1 {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #container-shopping {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  #container-shopping > select {
+    width: 100%;
+  }
+
+  #bloco2 {
+    display: none;
+  }
+
+  #bloco3 {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #btnUsuario {
+    bottom: 0;
+    margin-right: 0;
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  #bloco1 {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+
+  #container-shopping {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  #container-shopping > select {
+    width: auto;
+  }
+
+  #bloco2 {
+    display: flex;
+  }
+
+  #bloco3 {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #btnUsuario {
+    bottom: 0;
+    margin-right: 10px;
+  }
 }
 </style>

@@ -27,11 +27,25 @@
             <label for="email" class="labelInput">Email</label>
           </div>
           <div class="inputBox">
-            <input type="password" name="senha" id="senha" class="inputUser" required maxlength="30"/>
+            <input
+              type="password"
+              name="senha"
+              id="senha"
+              class="inputUser"
+              required
+              maxlength="30"
+            />
             <label for="senha" class="labelInput">Senha</label>
           </div>
           <div class="inputBox">
-            <input type="tel" name="telefone" id="telefone" class="inputUser" required maxlength="30"/>
+            <input
+              type="tel"
+              name="telefone"
+              id="telefone"
+              class="inputUser"
+              required
+              maxlength="30"
+            />
             <label for="telefone" class="labelInput">Telefone</label>
           </div>
           <label for="data_nascimento"><b>Data de Nascimento:</b></label>
@@ -48,7 +62,14 @@
             <input type="text" name="cpf" id="cpf" class="inputUser" required maxlength="11" />
             <label for="cpf" class="labelInput">CPF</label>
           </div>
-          <input type="submit" name="submit" id="submit" />
+          <div class="buttons">
+            <router-link to="/login">
+            <button type="submit" name="submit" id="submit">Voltar para o login</button>
+            </router-link>
+            <router-link to="/">
+              <button type="submit" id="submit">Finalizar Cadastro!</button>
+            </router-link>
+          </div>
         </fieldset>
       </form>
     </div>
@@ -110,7 +131,13 @@ legend {
 .inputBox {
   position: relative;
 }
-
+.buttons {
+  margin: 10px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 .inputUser {
   background: none;
   border: none;

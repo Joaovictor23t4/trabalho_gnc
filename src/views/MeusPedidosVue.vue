@@ -1,16 +1,9 @@
 <template>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
   <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <a href="/">
-          <img src="../gnc-logo.png" alt="" width="100" height="100" class="logo" id="topo" />
+          <img src="../assets/images/gnc-logo.png" alt="" width="100" height="100" class="logo" id="topo" />
         </a>
       </div>
     </div>
@@ -20,48 +13,27 @@
       <div class="col col-esquerda">
         <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
           <router-link to="/minha-conta/meus-pedidos" class="router">
-            <button type="button" class="btn btn-light">
-              <img src="../../ticket.png" alt="" class="icons" />Meus Pedidos
+            <button type="button" class="btn btn-danger btn-select">
+              <img src="../assets/images/ticket.png" alt="" class="icons" />Meus Pedidos
             </button>
           </router-link>
           <router-link to="/minha-conta/dados-pessoais" class="router">
-            <button type="button" class="btn btn-light">
-              <img src="../../jornal.png" alt="" class="icons" />Dados Pessoais
+            <button type="button" class="btn btn-light btn-select">
+              <img src="../assets/images/jornal.png" alt="" class="icons" />Dados Pessoais
             </button>
           </router-link>
           <router-link to="/pagamento" class="router">
-            <button type="button" class="btn btn-danger btn-select">
-              <img src="../../cartao.png" alt="" class="icons" />Pagamento
+            <button type="button" class="btn btn-light">
+              <img src="../assets/images/cartao.png" alt="" class="icons" />Pagamento
             </button>
           </router-link>
         </div>
       </div>
       <div class="col col-meio">
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-default">Pix | CPF:</span>
-          <input
-            placeholder="138.630.349-61"
-            type="text"
-            class="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-            disabled
-          />
-        </div>
+        <h1 v-if="pedidos > 0">Você tem os seguintes pedidos:</h1>
+        <h1 v-else>Você ainda não tem pedidos :(</h1>
       </div>
-      <div class="col col-direita">
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-default">Sala</span>
-          <input
-            placeholder="Sala E-207"
-            type="text"
-            class="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-            disabled
-          />
-        </div>
-      </div>
+      <div class="col col-direita"></div>
     </div>
   </main>
   <Footer />
@@ -74,18 +46,11 @@
 }
 .row {
   --bs-gutter-x: none !important;
-  min-height: 500px !important;
 }
 .col-meio,
 .col-direita {
   padding: 0 10px !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  max-height: 250px !important;
-}
-main {
-  min-height: 500px !important;
+  height: 100% !important;
 }
 .icons {
   width: 40px;
@@ -94,6 +59,9 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+main {
+  min-height: 500px !important;
 }
 .btn {
   padding: 10px;
@@ -116,12 +84,6 @@ main {
 .mb-3 {
   padding-top: 30px;
   padding-bottom: 30px;
-  width: 100% !important;
-  height: 200px !important;
-}
-.input-group-text,
-.form-control {
-  font-size: 25px !important;
 }
 .btn-select {
   color: white;
@@ -171,14 +133,109 @@ main {
   background-color: #212529;
   color: white;
 }
+/* Responsive styles */
+@media only screen and (max-width: 425px) {
+  .icons {
+    width: 30px;
+    height: 20px;
+    margin-right: 5px;
+  }
+
+  .btn {
+    font-size: 14px;
+    flex-wrap: wrap;
+  }
+
+  .router {
+    font-size: 14px;
+  }
+
+  .mb-3 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .logo {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .input-group-text,
+  .form-control {
+    font-size: 18px !important;
+  }
+}
+
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .icons {
+    width: 40px;
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  .btn {
+    font-size: 16px;
+  }
+
+  .router {
+    font-size: 16px;
+  }
+
+  .mb-3 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .logo {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .input-group-text,
+  .form-control {
+    font-size: 22px !important;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .icons {
+    width: 50px;
+    height: 40px;
+    margin-right: 15px;
+  }
+
+  .btn {
+    font-size: 18px;
+  }
+
+  .router {
+    font-size: 18px;
+  }
+
+  .mb-3 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .logo {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .input-group-text,
+  .form-control {
+    font-size: 25px !important;
+  }
+}
 </style>
 <script>
-import Footer from './components/FooterVue.vue'
+import FooterCopy from '../components/FooterCopy.vue'
+import Footer from '../components/FooterVue.vue'
 export default {
-  name: 'Pagamento',
+  name: 'MeusPedidos',
   components: {
     Footer,
-    FooterCopy
-  }
+    FooterCopy,
+  },
 }
 </script>

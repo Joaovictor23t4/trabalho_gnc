@@ -18,12 +18,12 @@
             </button>
           </router-link>
           <router-link to="/minha-conta/dados-pessoais" class="router">
-            <button type="button" class="btn btn-danger btn-select">
+            <button type="button" class="btn btn-light">
               <img src="../assets/images/jornal.png" alt="" class="icons" />Dados Pessoais
             </button>
           </router-link>
           <router-link to="/pagamento" class="router">
-            <button type="button" class="btn btn-light">
+            <button type="button" class="btn btn-danger btn-select">
               <img src="../assets/images/cartao.png" alt="" class="icons" />Pagamento
             </button>
           </router-link>
@@ -31,38 +31,9 @@
       </div>
       <div class="col col-meio">
         <div class="input-group mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+          <span class="input-group-text" id="inputGroup-sizing-default">Pix | CPF:</span>
           <input
-            type="text"
-            class="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-            disabled
-          />
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
-          <input
-            type="text"
-            class="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-            disabled
-          />
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-default">Telefone</span>
-          <input
-            type="text"
-            class="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-            disabled
-          />
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text group-maior" id="inputGroup-sizing-default">Data Nasc</span>
-          <input
+            placeholder="138.630.349-61"
             type="text"
             class="form-control"
             aria-label="Sizing example input"
@@ -73,30 +44,11 @@
       </div>
       <div class="col col-direita">
         <div class="input-group mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-default">Bairro</span>
+          <span class="input-group-text" id="inputGroup-sizing-default">Sala</span>
           <input
+            placeholder="Sala E-207"
             type="text"
             class="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-            disabled
-          />
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-default">Rua</span>
-          <input
-            type="text"
-            class="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-            disabled
-          />
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="inputGroup-sizing-default">CPF</span>
-          <input
-            type="text"
-            class="form-control cpf"
             aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-default"
             disabled
@@ -115,10 +67,18 @@
 }
 .row {
   --bs-gutter-x: none !important;
+  min-height: 500px !important;
 }
 .col-meio,
 .col-direita {
   padding: 0 10px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  max-height: 250px !important;
+}
+main {
+  min-height: 500px !important;
 }
 .icons {
   width: 40px;
@@ -149,6 +109,12 @@
 .mb-3 {
   padding-top: 30px;
   padding-bottom: 30px;
+  width: 100% !important;
+  height: 200px !important;
+}
+.input-group-text,
+.form-control {
+  font-size: 25px !important;
 }
 .btn-select {
   color: white;
@@ -203,41 +169,41 @@
   .btn-group-vertical {
     padding: 20px 0;
   }
-
   .col-meio,
   .col-direita {
-    padding: 0 5px !important;
+    padding: 10px !important;
+    display: block !important;
+    flex-wrap: wrap !important;
   }
-
   .icons {
     width: 30px;
     height: 20px;
     margin-right: 5px;
   }
-
   .btn {
     padding: 8px;
-    font-size: 16px;
+    font-size: 14px;
     width: 100%;
   }
-
   .router {
-    font-size: 16px;
+    font-size: 14px;
     width: 100%;
   }
-
   .mb-3 {
     padding-top: 20px;
     padding-bottom: 20px;
   }
-
   .logo {
-    width: 100px !important;
-    height: 100px !important;
+    width: 80px !important;
+    height: 80px !important;
   }
-
   .container-fluid {
     align-items: center !important;
+  }
+  .input-group-text,
+  .form-control {
+    font-size: 18px !important;
+    flex-wrap: wrap;
   }
 }
 
@@ -246,34 +212,32 @@
   .btn-group-vertical {
     padding: 30px 0;
   }
-
   .col-meio,
   .col-direita {
     padding: 0 10px !important;
   }
-
   .icons {
     width: 40px;
     height: 30px;
     margin-right: 10px;
   }
-
   .btn {
-    font-size: 18px;
+    font-size: 16px;
   }
-
   .router {
-    font-size: 18px;
+    font-size: 16px;
   }
-
   .mb-3 {
     padding-top: 30px;
     padding-bottom: 30px;
   }
-
   .logo {
-    width: 120px !important;
-    height: 120px !important;
+    width: 100px !important;
+    height: 100px !important;
+  }
+  .input-group-text,
+  .form-control {
+    font-size: 22px !important;
   }
 }
 
@@ -282,45 +246,43 @@
   .btn-group-vertical {
     padding: 30px 0;
   }
-
   .col-meio,
   .col-direita {
     padding: 0 15px !important;
   }
-
   .icons {
     width: 50px;
     height: 40px;
     margin-right: 15px;
   }
-
   .btn {
-    font-size: 20px;
+    font-size: 18px;
   }
-
   .router {
-    font-size: 20px;
+    font-size: 18px;
   }
-
   .mb-3 {
     padding-top: 40px;
     padding-bottom: 40px;
   }
-
   .logo {
-    width: 140px !important;
-    height: 140px !important;
+    width: 120px !important;
+    height: 120px !important;
+  }
+  .input-group-text,
+  .form-control {
+    font-size: 25px !important;
   }
 }
 </style>
 <script>
-import Footer from '../components/FooterVue.vue'
 import FooterCopy from '../components/FooterCopy.vue'
+import Footer from '../components/FooterVue.vue'
 export default {
-  name: 'MeusDadosPessoais',
+  name: 'Pagamento',
   components: {
     Footer,
-    FooterCopy,
-  },
+    FooterCopy
+  }
 }
 </script>
