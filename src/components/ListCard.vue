@@ -117,7 +117,8 @@ watch(option, async (newValue, oldValue) => {
     flex-direction: column;
     align-items: center;
     width: 252px;
-    height: 400px;
+    height: 342px;
+    margin-bottom: 80px;
 }
 
 .imageCard {

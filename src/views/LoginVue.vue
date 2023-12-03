@@ -47,6 +47,10 @@
   <FooterCopy />
 </template>
 
+<script setup>
+  import FooterCopy from '../components/FooterCopy.vue';
+</script>
+
 <style scoped>
 body {
   background-color: black !important;
@@ -256,7 +260,6 @@ button {
     width: 70%;
   }
 }
-
 </style>
 <script setup>
 import FooterCopy from '../components/FooterCopy.vue';

@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header id="header">
     <nav id="nav">
       <div id="nav-principal">
         <div id="bloco1">
@@ -81,8 +81,6 @@ function handleSelectChange(event) {
 }
 
 #container-shopping > select {
-  position: relative;
-  bottom: 10px;
   border: none;
   background: transparent;
   outline: none;
@@ -106,8 +104,6 @@ function handleSelectChange(event) {
 }
 
 #btnUsuario {
-  position: relative;
-  bottom: 15px;
   margin-right: 10px;
   border: none;
   outline: none;
