@@ -13,67 +13,71 @@
       </div>
     </nav>
   </div>
-  <div id="container-box">
-    <div class="box">
-      <form action="/cadastro.php" method="POST">
-        <fieldset>
-          <legend><b>Formulário de clientes</b></legend>
-          <div class="inputBox">
-            <input type="text" name="nome" id="nome" class="inputUser" required />
-            <label for="nome" class="labelInput">Nome Completo</label>
-          </div>
-          <div class="inputBox">
-            <input type="email" name="email" id="email" class="inputUser" required />
-            <label for="email" class="labelInput">Email</label>
-          </div>
-          <div class="inputBox">
-            <input
-              type="password"
-              name="senha"
-              id="senha"
-              class="inputUser"
-              required
-              maxlength="30"
-            />
-            <label for="senha" class="labelInput">Senha</label>
-          </div>
-          <div class="inputBox">
-            <input
-              type="tel"
-              name="telefone"
-              id="telefone"
-              class="inputUser"
-              required
-              maxlength="30"
-            />
-            <label for="telefone" class="labelInput">Telefone</label>
-          </div>
-          <label for="data_nascimento"><b>Data de Nascimento:</b></label>
-          <input type="date" name="data_nascimento" id="data_nascimento" required />
-          <div class="inputBox">
-            <input type="text" name="bairro" id="bairro" class="inputUser" required />
-            <label for="bairro" class="labelInput">Bairro</label>
-          </div>
-          <div class="inputBox">
-            <input type="text" name="rua" id="rua" class="inputUser" required />
-            <label for="rua" class="labelInput">Rua</label>
-          </div>
-          <div class="inputBox">
-            <input type="text" name="cpf" id="cpf" class="inputUser" required maxlength="11" />
-            <label for="cpf" class="labelInput">CPF</label>
-          </div>
-          <div class="buttons">
-            <router-link to="/login">
-            <button type="submit" name="submit" id="submit">Voltar para o login</button>
-            </router-link>
-            <router-link to="/">
-              <button type="submit" id="submit">Finalizar Cadastro!</button>
-            </router-link>
-          </div>
-        </fieldset>
-      </form>
+  <!-- Começo da tela -->
+  <main>
+    <div id="container-box">
+      <div class="box">
+        <form action="/cadastro.php" method="POST">
+          <fieldset>
+            <legend><b>Formulário de clientes</b></legend>
+            <div class="inputBox">
+              <input type="text" name="nome" id="nome" class="inputUser" required />
+              <label for="nome" class="labelInput">Nome Completo</label>
+            </div>
+            <div class="inputBox">
+              <input type="email" name="email" id="email" class="inputUser" required />
+              <label for="email" class="labelInput">Email</label>
+            </div>
+            <div class="inputBox">
+              <input
+                type="password"
+                name="senha"
+                id="senha"
+                class="inputUser"
+                required
+                maxlength="30"
+              />
+              <label for="senha" class="labelInput">Senha</label>
+            </div>
+            <div class="inputBox">
+              <input
+                type="tel"
+                name="telefone"
+                id="telefone"
+                class="inputUser"
+                required
+                maxlength="30"
+              />
+              <label for="telefone" class="labelInput">Telefone</label>
+            </div>
+            <label for="data_nascimento"><b>Data de Nascimento:</b></label>
+            <input type="date" name="data_nascimento" id="data_nascimento" required />
+            <div class="inputBox">
+              <input type="text" name="bairro" id="bairro" class="inputUser" required />
+              <label for="bairro" class="labelInput">Bairro</label>
+            </div>
+            <div class="inputBox">
+              <input type="text" name="rua" id="rua" class="inputUser" required />
+              <label for="rua" class="labelInput">Rua</label>
+            </div>
+            <div class="inputBox">
+              <input type="text" name="cpf" id="cpf" class="inputUser" required maxlength="11" />
+              <label for="cpf" class="labelInput">CPF</label>
+            </div>
+            <div class="buttons">
+              <router-link to="/login">
+                <button type="submit" name="submit" id="submit">Voltar para o login</button>
+              </router-link>
+              <router-link to="/">
+                <button type="submit" id="submit">Finalizar Cadastro!</button>
+              </router-link>
+            </div>
+          </fieldset>
+        </form>
+      </div>
     </div>
-  </div>
+  </main>
+  <!-- Fim da tela -->
   <FooterCopy />
 </template>
 <style scoped>
@@ -96,7 +100,9 @@
   align-items: flex-start !important;
   height: 100px !important;
 }
-
+main {
+  background-color: white;
+}
 #container-box {
   display: flex;
   justify-content: center;
@@ -211,6 +217,28 @@ legend {
   width: 100%;
   background-color: #212529;
   color: white;
+}
+
+legend {
+  animation: efect 2s linear infinite;
+}
+
+@keyframes efect {
+  0% {
+    color: #b00000;
+  }
+
+  50% {
+    color: #018d5c;
+  }
+
+  75% {
+    color: #018d5c;
+  }
+
+  100% {
+    color: #b00000;
+  }
 }
 
 @media (max-width: 425px) {

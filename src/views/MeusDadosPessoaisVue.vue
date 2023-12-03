@@ -128,6 +128,9 @@
   justify-content: flex-start;
   align-items: center;
 }
+main {
+  background-color: white !important;
+}
 .btn {
   padding: 10px;
   font-size: 18px;

@@ -13,45 +13,47 @@
       </div>
     </nav>
   </div>
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-sm-4">
-        <img src="../assets/images/gnc-logo.png" alt="" id="logo" />
-        <h3>Voltar para o seu login</h3>
-        <router-link to="/login">
-          <button type="button" class="btn btn-outline-secondary">Conectar-se</button>
-        </router-link>
-      </div>
-      <div class="col-sm-8 bg-dark">
-        <h1>Esqueceu a senha?</h1>
-        <h2>Para continuar, adicione seu email para confirmarmos a nova senha.</h2>
-        <div class="form">
-          <form action="">
-            <div class="inputBox">
-              <input type="email" name="email" id="email" class="inputUser" required />
-              <label for="email" class="labelInput">Email</label>
-            </div>
-            <div class="inputBox">
-              <input
-                type="email"
-                name="confirmar-email"
-                id="confirmar-email"
-                class="inputUser"
-                required
-                maxlength="30"
-              />
-              <label for="confirmar-email" class="labelInput">Confirmar email</label>
-            </div>
-            <router-link to="/">
-              <button type="button" class="btn btn-outline-danger">Enviar</button>
-            </router-link>
-            <hr />
-            <router-link to="/cadastro">Não tem uma conta? Cadastre-se</router-link>
-          </form>
+  <main>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-sm-4">
+          <img src="../assets/images/gnc-logo.png" alt="" id="logo" />
+          <h3>Voltar para o seu login</h3>
+          <router-link to="/login">
+            <button type="button" class="btn btn-outline-secondary">Conectar-se</button>
+          </router-link>
+        </div>
+        <div class="col-sm-8 bg-dark">
+          <h1>Esqueceu a senha?</h1>
+          <h2>Para continuar, adicione seu email para confirmarmos a nova senha.</h2>
+          <div class="form">
+            <form action="">
+              <div class="inputBox">
+                <input type="email" name="email" id="email" class="inputUser" required />
+                <label for="email" class="labelInput">Email</label>
+              </div>
+              <div class="inputBox">
+                <input
+                  type="email"
+                  name="confirmar-email"
+                  id="confirmar-email"
+                  class="inputUser"
+                  required
+                  maxlength="30"
+                />
+                <label for="confirmar-email" class="labelInput">Confirmar email</label>
+              </div>
+              <router-link to="/">
+                <button type="button" class="btn btn-outline-danger">Enviar</button>
+              </router-link>
+              <hr />
+              <router-link to="/cadastro">Não tem uma conta? Cadastre-se</router-link>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </main>
   <FooterCopy />
 </template>
 
@@ -100,7 +102,9 @@ body {
 h1 {
   color: white !important;
 }
-
+main {
+  background-color: white;
+}
 .col-sm-4 {
   background-color: #000000 !important;
   border: #333333 0.5px solid !important;
@@ -269,6 +273,6 @@ button {
 }
 </style>
 <script setup>
-import FooterCopy from '../components/FooterCopy.vue';
+import FooterCopy from '../components/FooterCopy.vue'
 </script>
     

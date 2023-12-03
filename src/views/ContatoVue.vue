@@ -15,8 +15,10 @@
       </div>
     </nav>
   </div>
+  <!-- Começo da página -->
   <main>
     <div class="row">
+      <!-- Nomes -->
       <div class="col-6">
         <div class="box">
           <img src="../assets/images/joao.jpg" alt="" />
@@ -33,8 +35,10 @@
           <p>Email: luiz.fernando.251107@gmail.com</p>
         </div>
       </div>
+      <!-- Fim dos nomes -->
     </div>
   </main>
+  <!-- Fim da página -->
   <Footer />
   <FooterCopy />
 </template>

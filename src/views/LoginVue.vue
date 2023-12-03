@@ -13,44 +13,48 @@
       </div>
     </nav>
   </div>
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-sm-4">
-        <img src="../assets/images/gnc-logo.png" alt="" id="logo" />
-        <h3>Não tem uma conta? Crie agora mesmo!</h3>
-        <button type="button" class="btn btn-outline-secondary">Criar conta!</button>
-      </div>
-      <div class="col-sm-8">
-        <h1>Bem vindo de volta!</h1>
-        <h2>Para continuar, faça login em sua conta.</h2>
-        <div class="form">
-          <form action="">
-            <div class="inputBox">
-              <input type="email" name="email" id="email" class="inputUser" required />
-              <label for="email" class="labelInput">Email</label>
-            </div>
-            <div class="inputBox">
-            <input type="password" name="senha" id="senha" class="inputUser" required maxlength="30"/>
-            <label for="senha" class="labelInput">Senha</label>
+  <main>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-sm-4">
+          <img src="../assets/images/gnc-logo.png" alt="" id="logo" />
+          <h3>Não tem uma conta? Crie agora mesmo!</h3>
+          <button type="button" class="btn btn-outline-secondary">Criar conta!</button>
+        </div>
+        <div class="col-sm-8">
+          <h1>Bem vindo de volta!</h1>
+          <h2>Para continuar, faça login em sua conta.</h2>
+          <div class="form">
+            <form action="">
+              <div class="inputBox">
+                <input type="email" name="email" id="email" class="inputUser" required />
+                <label for="email" class="labelInput">Email</label>
+              </div>
+              <div class="inputBox">
+                <input
+                  type="password"
+                  name="senha"
+                  id="senha"
+                  class="inputUser"
+                  required
+                  maxlength="30"
+                />
+                <label for="senha" class="labelInput">Senha</label>
+              </div>
+              <router-link to="/">
+                <button type="button" class="btn btn-outline-danger">Entrar</button>
+              </router-link>
+              <router-link to="/minha-conta/esqueci-senha">Esqueceu a senha?</router-link>
+              <hr />
+              <router-link to="/cadastro">Não tem uma conta? Cadastre-se</router-link>
+            </form>
           </div>
-            <router-link to="/">
-              <button type="button" class="btn btn-outline-danger">Entrar</button>
-            </router-link>
-            <router-link to="/minha-conta/esqueci-senha">Esqueceu a senha?</router-link>
-            <hr />
-            <router-link to="/cadastro">Não tem uma conta? Cadastre-se</router-link>
-          </form>
         </div>
       </div>
     </div>
-  </div>
+  </main>
   <FooterCopy />
 </template>
-
-<script setup>
-  import FooterCopy from '../components/FooterCopy.vue';
-</script>
-
 <style scoped>
 body {
   background-color: black !important;
@@ -74,7 +78,9 @@ body {
   align-items: flex-start !important;
   height: 100px !important;
 }
-
+main {
+  background-color: white;
+}
 .container {
   display: flex !important;
   flex-direction: column !important;
@@ -172,7 +178,8 @@ button {
   white-space: pre-line;
   margin: 30px 0 30px 0;
 }
-#email, #senha {
+#email,
+#senha {
   color: white !important;
 }
 
@@ -200,7 +207,8 @@ button {
     width: 100%;
   }
 
-  .col-sm-4, .col-sm-8 {
+  .col-sm-4,
+  .col-sm-8 {
     width: 100%;
     border-radius: 0;
   }
@@ -262,7 +270,6 @@ button {
 }
 </style>
 <script setup>
-import FooterCopy from '../components/FooterCopy.vue';
-
+import FooterCopy from '../components/FooterCopy.vue'
 </script>
     
