@@ -58,6 +58,9 @@
   align-items: flex-start !important;
   height: 100px !important;
 }
+main {
+  background-color: white;
+}
 .row {
   --bs-gutter-x: none !important;
   padding: 20px !important;
@@ -66,8 +69,8 @@
   align-items: center !important;
 }
 .col-6 {
-    display: flex !important;
-    justify-content: center !important;
+  display: flex !important;
+  justify-content: center !important;
 }
 .box {
   width: 70%;

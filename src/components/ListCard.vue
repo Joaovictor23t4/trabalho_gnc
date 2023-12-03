@@ -186,4 +186,63 @@ function changeColorOption(element) {
 .reservePeriod {
     color: #004686;
 }
+
+@media screen and (max-width: 425px) {
+  #emCartazPeriod > button,
+  #emBrevePeriod > button {
+    font-size: 16px; /* Ajuste conforme necessário */
+  }
+  #periodOption {
+    display: flex;
+    justify-content: center;
+  }
+  .divCard {
+    width: 100%; /* Ocupa toda a largura */
+  }
+}
+@media screen and (max-width: 768px) {
+  #containerOptions {
+    grid-column: 1;
+  }
+  .titleCard {
+    font-size: 14px;
+    flex-wrap: wrap;
+  }
+  #periodOption {
+    margin-top: 20px;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+  }
+  #emCartazPeriod > button,
+  #emBrevePeriod > button {
+    font-size: 20px;
+  }
+  #containerList {
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  .divCard {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 1024px) {
+  #containerGrid {
+    grid-template-columns: 1fr;
+  }
+  #containerList {
+    justify-content: center;
+    display: flex;
+  }
+  #periodOption {
+    margin-top: 20px;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+  }
+}
 </style>

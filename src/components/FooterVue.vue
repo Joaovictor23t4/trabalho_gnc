@@ -158,10 +158,10 @@ iframe {
   border: none;
 }
 
-#infoGnc:hover, #infoGarten:hover, #infoMueller:hover, #refTop:hover, #refIngresso:hover {
+#infoGnc:hover, #infoGarten:hover, #infoMueller:hover, #refTop:hover, #refIngresso:hover, #input_group:hover {
   transition: .2s;
   color: #c30000;
-
+}
 #input_group {
   text-align: center;
   margin-top: 20px; /* Ajuste conforme necessário */
