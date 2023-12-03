@@ -75,14 +75,12 @@
         </li>
       </ul>
       <div id="footer_subscribe">
-        <h3>Inscreva-se</h3>
-        <p>Entre com seu email para notificarmos novas notícias.</p>
+        <h2>Acesse a página de contato, e veja os fundadores deste site!</h2>
 
         <div id="input_group">
-          <input type="email" id="email" />
-          <button>
-            <i class="fa-regular fa-envelope"></i>
-          </button>
+          <router-link to="/contato" class="router">
+            <button>Contato</button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -162,6 +160,33 @@ iframe {
   width: 200px;
   height: 200px;
   border: none;
+}
+#input_group {
+  text-align: center;
+  margin-top: 20px; /* Ajuste conforme necessário */
+}
+
+.router-link {
+  text-decoration: none;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  letter-spacing: 2px;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #004b92; 
+  color: #fff;
 }
 /* Mobile (425px) */
 @media only screen and (max-width: 425px) {
