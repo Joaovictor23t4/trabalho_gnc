@@ -1,16 +1,9 @@
 <template>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
   <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <a href="/">
-          <img src="/src/assets/images/gnc-logo.png" alt="" width="100" height="100" class="logo" id="topo" />
+          <img src="../assets/images/gnc-logo.png" alt="" width="100" height="100" class="logo" id="topo" />
         </a>
       </div>
     </div>
@@ -21,17 +14,17 @@
         <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
           <router-link to="/minha-conta/meus-pedidos" class="router">
             <button type="button" class="btn btn-light">
-              <img src="/src/assets/images/ticket.png" alt="" class="icons" />Meus Pedidos
+              <img src="../assets/images/ticket.png" alt="" class="icons" />Meus Pedidos
             </button>
           </router-link>
           <router-link to="/minha-conta/dados-pessoais" class="router">
             <button type="button" class="btn btn-light">
-              <img src="/src/assets/images/jornal.png" alt="" class="icons" />Dados Pessoais
+              <img src="../assets/images/jornal.png" alt="" class="icons" />Dados Pessoais
             </button>
           </router-link>
           <router-link to="/pagamento" class="router">
             <button type="button" class="btn btn-danger btn-select">
-              <img src="/src/assets/images/cartao.png" alt="" class="icons" />Pagamento
+              <img src="../assets/images/cartao.png" alt="" class="icons" />Pagamento
             </button>
           </router-link>
         </div>
@@ -171,7 +164,125 @@ main {
   background-color: #212529;
   color: white;
 }
+/* Mobile (425px) */
+@media only screen and (max-width: 425px) {
+  .btn-group-vertical {
+    padding: 20px 0;
+  }
+  .col-meio,
+  .col-direita {
+    padding: 10px !important;
+    display: block !important;
+    flex-wrap: wrap !important;
+  }
+  .icons {
+    width: 30px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  .btn {
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+  }
+  .router {
+    font-size: 14px;
+    width: 100%;
+  }
+  .mb-3 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .logo {
+    width: 80px !important;
+    height: 80px !important;
+  }
+  .container-fluid {
+    align-items: center !important;
+  }
+  .input-group-text,
+  .form-control {
+    font-size: 18px !important;
+    flex-wrap: wrap;
+  }
+}
+
+/* Tablet (768px) */
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .btn-group-vertical {
+    padding: 30px 0;
+  }
+  .col-meio,
+  .col-direita {
+    padding: 0 10px !important;
+  }
+  .icons {
+    width: 40px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  .btn {
+    font-size: 16px;
+  }
+  .router {
+    font-size: 16px;
+  }
+  .mb-3 {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .logo {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  .input-group-text,
+  .form-control {
+    font-size: 22px !important;
+  }
+}
+
+/* Desktop (1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .btn-group-vertical {
+    padding: 30px 0;
+  }
+  .col-meio,
+  .col-direita {
+    padding: 0 15px !important;
+  }
+  .icons {
+    width: 50px;
+    height: 40px;
+    margin-right: 15px;
+  }
+  .btn {
+    font-size: 18px;
+  }
+  .router {
+    font-size: 18px;
+  }
+  .mb-3 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .logo {
+    width: 120px !important;
+    height: 120px !important;
+  }
+  .input-group-text,
+  .form-control {
+    font-size: 25px !important;
+  }
+}
 </style>
 <script>
+import FooterCopy from '../components/FooterCopy.vue'
 import Footer from '../components/FooterVue.vue'
+export default {
+  name: 'Pagamento',
+  components: {
+    Footer,
+    FooterCopy
+  }
+}
 </script>

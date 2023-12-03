@@ -1,200 +1,169 @@
 <template>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-  <nav class="navbar navbar-expand-lg bg-dark">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a href="/">
-          <img src="/src/assets/images/gnc-logo.png" alt="" width="100" height="100" class="logo" id="topo" />
-        </a>
-      </div>
-    </div>
-  </nav>
+  <Header @parametroShopping="optionSelectShopping" />
   <main>
     <div class="row">
       <div class="col col-esquerda">
-        
+        <div class="image">
+          <img src="../assets/images/gnc-logo.png" alt="Imagem do filme" class="imagem"/>
+        </div>
       </div>
       <div class="col col-meio">
-        
+        <div class="topo-meio">
+          <button @click="changeOptionMovies('sinopse')">Sinopse</button>
+          <button @click="changeOptionMovies('sessoes')">Sessões</button>
+        </div>
+        <div v-if="opcaoFilme === 'sinopse'">
+          <h2>Sinopse</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit...</p>
+        </div>
+        <div v-else>
+          <h1>Sessões</h1>
+          <div class="row">
+            <div class="col">
+              <div class="topo-meio">Sala 1</div>
+              <div class="meio-meio">14:00 DUB</div>
+              <div class="embaixo-meio">16:00 LEG</div>
+            </div>
+            <div class="col">
+              <div class="topo-meio">Sala 2</div>
+              <div class="meio-meio">14:00 DUB</div>
+              <div class="embaixo-meio">16:00 LEG</div>
+            </div>
+            <div class="col">
+              <div class="topo-meio">Sala 3</div>
+              <div class="meio-meio">14:00 DUB</div>
+              <div class="embaixo-meio">16:00 LEG</div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="topo-meio">Sala 4</div>
+                <div class="meio-meio">14:00 LEG</div>
+                <div class="embaixo-meio">16:00 DUB</div>
+              </div>
+              <div class="col">
+                <div class="topo-meio">Sala 5</div>
+                <div class="meio-meio">14:00 LEG</div>
+                <div class="embaixo-meio">16:00 DUB</div>
+              </div>
+              <div class="col">
+                <div class="topo-meio">Sala 6</div>
+                <div class="meio-meio">14:00 LEG</div>
+                <div class="embaixo-meio">16:00 DUB</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col col-direita">
-        
-      </div>
+      <div class="col col-direita"></div>
     </div>
   </main>
   <Footer />
+  <FooterCopy />
 </template>
 <style scoped>
-.btn-group-vertical {
-  padding: 30px 0 30px 0;
-  width: 100%;
-}
 .row {
   --bs-gutter-x: none !important;
 }
-.col-meio,
+.image {
+  background-color: black;
+}
+.col-esquerda {
+  padding: 80px 20px 80px 15px !important;
+}
+.col-meio {
+  padding: 10px !important;
+}
 .col-direita {
-  padding: 0 10px !important;
+  padding: 20px !important;
 }
-.icons {
-  width: 40px;
-  height: 30px;
-  margin-right: 10px;
+.meio-meio,
+.embaixo-meio,
+.topo-meio {
+  padding: 20px 0 20px 0;
+  font-size: 20px;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
 }
-.btn {
-  padding: 10px;
-  font-size: 18px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  color: #036e46;
-  width: 80%;
+/* Mobile (425px) */
+@media only screen and (max-width: 425px) {
+  .col-esquerda {
+    padding: 30px 10px !important;
+  }
+
+  .imagem {
+    width: 100%;
+    height: 100%;
+  }
+
+  .col-meio {
+    padding: 10px !important;
+  }
+
+  .col-direita {
+    padding: 20px !important;
+  }
+
+  .meio-meio,
+  .embaixo-meio,
+  .topo-meio {
+    padding: 10px 0;
+    font-size: 16px;
+  }
 }
-.router {
-  font-size: 18px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  color: #036e46;
-  width: 90%;
-  text-decoration: none;
+
+/* Tablet (768px) */
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+  .col-esquerda {
+    padding: 40px 15px !important;
+  }
+
+  .col-meio {
+    padding: 15px !important;
+  }
+
+  .col-direita {
+    padding: 25px !important;
+  }
+
+  .meio-meio,
+  .embaixo-meio,
+  .topo-meio {
+    padding: 15px 0;
+    font-size: 18px;
+  }
 }
-.mb-3 {
-  padding-top: 30px;
-  padding-bottom: 30px;
+
+/* Desktop (1024px) */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .col-esquerda {
+    padding: 60px 20px !important;
+  }
+
+  .col-meio {
+    padding: 20px !important;
+  }
+
+  .col-direita {
+    padding: 30px !important;
+  }
+
+  .meio-meio,
+  .embaixo-meio,
+  .topo-meio {
+    padding: 20px 0;
+    font-size: 20px;
+  }
 }
-.btn-select {
-  color: white;
-}
-.btn-light {
-  background-color: rgb(224, 224, 224);
-  color: #036e46;
-}
-.btn-light:hover {
-  background-color: rgb(197, 197, 197);
-  color: #036e46;
-}
-.logo {
-  width: 140px !important;
-  height: 140px !important;
-}
-.container-fluid {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-}
-.bg-body-tertiary {
-  background-color: rgb(71, 71, 71) !important;
-  color: white !important;
-  height: 60px !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-}
-.navbar-expand-lg .navbar-collapse {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  height: 140px !important;
-}
-.col-left {
-  display: flex !important;
-  justify-content: flex-start !important;
-  align-items: flex-start !important;
-}
-.col-12 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-  width: 100%;
-  background-color: #212529;
-  color: white;
-}
-#logofooter {
-  border-radius: 180px;
-  width: 180px;
-}
-footer {
-  width: 100%;
-  color: #ffffff;
-}
-#footer-link {
-  text-decoration: none;
-}
-#footer_content {
-  background-color: #202020;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 3rem 3.5rem;
-}
-#footer_contacts h1 {
-  margin-bottom: 0.75rem;
-}
-#footer_social_media {
-  display: flex;
-  gap: 2rem;
-  margin-top: 1.5rem;
-}
-#footer_social_media .footer-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 2.5rem;
-  width: 2.5rem;
-  color: var(--color-neutral-40);
-  border-radius: 50%;
-  transition: all 0.4s;
-  text-decoration: none;
-}
-#footer_social_media .footer-link:hover {
-  opacity: 0.8;
-}
-#instagram {
-  background: linear-gradient(#7f37c9, #ff2992, #ff9807);
-}
-#facebook {
-  background-color: #4267b3;
-}
-#whatsapp {
-  background-color: #25d366;
-}
-.footer-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  list-style: none;
-}
-.footer-list .footer-link {
-  color: var(--color-neutral-40);
-  transition: all 0.4s;
-}
-.footer-list .footer-link:hover {
-  color: var(---color-neutral-20);
-}
-#footer_subscribe {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-#footer_subscribe p {
-  color: var(---color-neutral-20);
-}
-iframe {
-  width: 200px;
-  height: 200px;
-  border: none;
-}
+
 </style>
-<script>
-import Footer from '../components/FooterVue.vue';
+<script setup>
+import Header from '../components/Header.vue'
+import Footer from '../components/FooterVue.vue'
+import FooterCopy from '../components/FooterCopy.vue'
+let opcaoFilme = 'sinopse'
+let opcaoSessao = 'sessoes'
+let changeOptionMovies = (option) => {
+  opcaoFilme = option
+}
 </script>
