@@ -3,13 +3,13 @@
         <div id="containerOptions">
         <div id="periodOption">
             <div id="emCartazPeriod">
-                <button @click="changeOptionMovies('cartaz')" id="buttonCartaz">
-                    <p>Em Cartaz</p>
+                <button @click="changeOptionMovies('cartaz'); changeColorOption('pCartaz')" id="buttonCartaz">
+                    <p ref="paragraphCartaz">Em Cartaz</p>
                 </button>
             </div>
             <div id="emBrevePeriod">
-                <button @click="changeOptionMovies('breve')" id="buttonbreve">
-                    <p>Em Breve</p>
+                <button @click="changeOptionMovies('breve'); changeColorOption('pBreve')" id="buttonbreve">
+                    <p ref="paragraphBreve">Em Breve</p>
                 </button>
             </div>
         </div>
@@ -49,11 +49,17 @@ import axios from 'axios';
 
 const option = ref('cartaz');
 const movies = ref([]);
+const paragraphCartaz = ref(null);
+const paragraphBreve = ref(null);
+
 
 onMounted(async () => {
     let listaFilmes = await axios.get('https://api-content.ingresso.com/v0/templates/nowplaying/16?partnership=joaovictorpr');
 
     movies.value = listaFilmes.data;
+
+    paragraphCartaz.value.classList.add("chosenPeriod");
+    paragraphBreve.value.classList.add("reservePeriod");
 
     console.log(movies.value);
 })
@@ -77,6 +83,20 @@ watch(option, async (newValue, oldValue) => {
         console.log(movies.value);
     }
 })
+
+function changeColorOption(element) {
+    if (element === 'pCartaz') {
+        paragraphCartaz.value.classList.remove('reservePeriod');
+        paragraphBreve.value.classList.remove('chosenPeriod');
+        paragraphCartaz.value.classList.add('chosenPeriod');
+        paragraphBreve.value.classList.add('reservePeriod');
+    } else if (element === 'pBreve') {
+        paragraphBreve.value.classList.remove('reservePeriod');
+        paragraphCartaz.value.classList.remove('chosenPeriod');
+        paragraphBreve.value.classList.add('chosenPeriod');
+        paragraphCartaz.value.classList.add('reservePeriod');
+    }
+}
 </script>
 
 <style scoped>
@@ -156,5 +176,14 @@ watch(option, async (newValue, oldValue) => {
     font-size: 17px;
     position: relative;
     bottom: 10px;
+}
+
+.chosenPeriod {
+    color: #028657;
+    border-bottom: 3px solid #028657;
+}
+
+.reservePeriod {
+    color: #004686;
 }
 </style>
