@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg bg-dark">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <img src="../gnc-logo.png" alt="" width="100" height="100" class="logo" />
+          <img src="../assets/images/gnc-logo.png" alt="" width="100" height="100" class="logo" />
         </div>
       </div>
     </nav>
@@ -27,11 +27,25 @@
             <label for="email" class="labelInput">Email</label>
           </div>
           <div class="inputBox">
-            <input type="password" name="senha" id="senha" class="inputUser" required maxlength="30"/>
+            <input
+              type="password"
+              name="senha"
+              id="senha"
+              class="inputUser"
+              required
+              maxlength="30"
+            />
             <label for="senha" class="labelInput">Senha</label>
           </div>
           <div class="inputBox">
-            <input type="tel" name="telefone" id="telefone" class="inputUser" required maxlength="30"/>
+            <input
+              type="tel"
+              name="telefone"
+              id="telefone"
+              class="inputUser"
+              required
+              maxlength="30"
+            />
             <label for="telefone" class="labelInput">Telefone</label>
           </div>
           <label for="data_nascimento"><b>Data de Nascimento:</b></label>
@@ -48,32 +62,20 @@
             <input type="text" name="cpf" id="cpf" class="inputUser" required maxlength="11" />
             <label for="cpf" class="labelInput">CPF</label>
           </div>
-          <input type="submit" name="submit" id="submit" />
+          <div class="buttons">
+            <router-link to="/login">
+            <button type="submit" name="submit" id="submit">Voltar para o login</button>
+            </router-link>
+            <router-link to="/">
+              <button type="submit" id="submit">Finalizar Cadastro!</button>
+            </router-link>
+          </div>
         </fieldset>
       </form>
     </div>
   </div>
   <FooterCopy />
 </template>
-<script>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-
-const statusRequisicao = ref(null)
-const router = useRouter()
-
-const submitForm = async () => {
-  const requisicao = await axios.get('/src/server_php/cadastro.php')
-
-  statusRequisicao.value = requisicao.data
-
-  if (statusRequisicao.value === 'Sucesso') {
-    router.push('/login')
-  } else {
-    alert(statusRequisicao.value)
-  }
-}
-</script>
 <style scoped>
 .bg-body-tertiary {
   background-color: rgb(71, 71, 71) !important;
@@ -129,7 +131,13 @@ legend {
 .inputBox {
   position: relative;
 }
-
+.buttons {
+  margin: 10px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 .inputUser {
   background: none;
   border: none;
@@ -230,6 +238,22 @@ legend {
   }
 }
 </style>
-<script>
+<script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import FooterCopy from '../components/FooterCopy.vue'
+const statusRequisicao = ref(null)
+const router = useRouter()
+
+const submitForm = async () => {
+  const requisicao = await axios.get('/src/server_php/cadastro.php')
+
+  statusRequisicao.value = requisicao.data
+
+  if (statusRequisicao.value === 'Sucesso') {
+    router.push('/login')
+  } else {
+    alert(statusRequisicao.value)
+  }
+}
 </script>
