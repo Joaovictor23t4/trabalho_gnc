@@ -3,11 +3,7 @@
     <nav class="navbar navbar-expand-lg bg-dark">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-<<<<<<< HEAD:src/views/EsqueciSenhaVue.vue
           <img src="../assets/images/gnc-logo.png" alt="" width="100" height="100" class="logo" />
-=======
-          <img src="/src/assets/images/gnc-logo.png" alt="" width="100" height="100" class="logo" />
->>>>>>> a91a68d58e2b8c86d8a2d1478c567cd91b1684c6:src/views/EsqueciSenha.vue
         </div>
       </div>
     </nav>
@@ -20,11 +16,7 @@
   <div class="container text-center">
     <div class="row">
       <div class="col-sm-4">
-<<<<<<< HEAD:src/views/EsqueciSenhaVue.vue
         <img src="../assets/images/gnc-logo.png" alt="" id="logo" />
-=======
-        <img src="/src/assets/images/gnc-logo.png" alt="" id="logo" />
->>>>>>> a91a68d58e2b8c86d8a2d1478c567cd91b1684c6:src/views/EsqueciSenha.vue
         <h3>Voltar para o seu login</h3>
         <router-link to="/login">
           <button type="button" class="btn btn-outline-secondary">Conectar-se</button>
@@ -276,11 +268,7 @@ button {
   }
 }
 </style>
-<<<<<<< HEAD:src/views/EsqueciSenhaVue.vue
 <script setup>
-=======
-<script>
->>>>>>> a91a68d58e2b8c86d8a2d1478c567cd91b1684c6:src/views/EsqueciSenha.vue
 import FooterCopy from '../components/FooterCopy.vue';
 </script>
     
