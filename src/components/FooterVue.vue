@@ -37,19 +37,13 @@
           <h3>Para mais informações, acesse:</h3>
         </li>
         <li>
-          <a href="https://www.gnccinemas.com.br/index.php/home" class="footer-link" target="_blank"
-            >GNC Cinemas</a
-          >
+          <a href="https://www.gnccinemas.com.br/index.php/home" class="footer-link" target="_blank" id="infoGnc">GNC Cinemas</a>
         </li>
         <li>
-          <a href="https://www.gartenshopping.com.br/" class="footer-link" target="_blank"
-            >Shopping Garten</a
-          >
+          <a href="https://www.gartenshopping.com.br/" class="footer-link" target="_blank" id="infoGarten">Shopping Garten</a>
         </li>
         <li>
-          <a href="https://muellerjoinville.com.br/" class="footer-link" target="_blank"
-            >Shopping Mueller</a
-          >
+          <a href="https://muellerjoinville.com.br/" class="footer-link" target="_blank" id="infoMueller">Shopping Mueller</a>
         </li>
       </ul>
       <ul class="footer-list">
@@ -57,10 +51,10 @@
           <h3>Referências</h3>
         </li>
         <li>
-          <a href="#header" class="footer-link">Voltar ao topo ▲</a>
+          <a href="#header" class="footer-link" id="refTop">Voltar ao topo ▲</a>
         </li>
         <li>
-          <a href="https://www.ingresso.com" class="footer-link" target="_blank">Ingressos.com</a>
+          <a href="https://www.ingresso.com" class="footer-link" target="_blank" id="refIngresso">Ingressos.com</a>
         </li>
         <li>
           <iframe
@@ -163,17 +157,24 @@ iframe {
   height: 200px;
   border: none;
 }
+
+#infoGnc:hover, #infoGarten:hover, #infoMueller:hover, #refTop:hover, #refIngresso:hover {
+  transition: .2s;
+  color: #c30000;
+}
+
 #input_group {
   text-align: center;
   margin-top: 20px; /* Ajuste conforme necessário */
 }
 
-.router-link {
+.router {
   text-decoration: none;
 }
 
 button {
   display: inline-block;
+  border: none;
   padding: 10px 20px;
   letter-spacing: 2px;
   font-size: 28px;
