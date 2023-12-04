@@ -1,20 +1,19 @@
 <template>
-  <div class="container-pai">
-    <nav class="navbar navbar-expand-lg bg-dark">
-      <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <img src="../assets/images/gnc-logo.png" alt="" width="100" height="100" class="logo" />
-        </div>
-      </div>
-    </nav>
-    <nav class="navbar bg-body-tertiary">
-      <div class="container-fluid nav-cad">
-        <h1>Cadastre-se</h1>
-      </div>
-    </nav>
-  </div>
-  <!-- Começo da tela -->
   <main>
+    <div class="container-pai">
+      <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <img src="../assets/images/gnc-logo.png" alt="" width="100" height="100" class="logo" />
+          </div>
+        </div>
+      </nav>
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid nav-cad">
+          <h1>Cadastre-se</h1>
+        </div>
+      </nav>
+    </div>
     <div id="container-box">
       <div class="box">
         <form action="/cadastro.php" method="POST">
@@ -66,7 +65,7 @@
             </div>
             <div class="buttons">
               <router-link to="/login">
-                <button type="submit" name="submit" id="submit">Voltar para o login</button>
+              <button type="submit" name="submit" id="submit">Voltar para o login</button>
               </router-link>
               <router-link to="/">
                 <button type="submit" id="submit">Finalizar Cadastro!</button>
@@ -75,12 +74,70 @@
           </fieldset>
         </form>
       </div>
-    </div>
-  </main>
-  <!-- Fim da tela -->
+</main>
   <FooterCopy />
 </template>
+
+<script setup>
+import { ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
+import axios from 'axios'
+import FooterCopy from '../components/FooterCopy.vue'
+
+const statusRequisicao = ref(null)
+const router = useRouter()
+const formValues = ref({
+  nome: '',
+  email: '',
+  senha: '',
+  telefone: '',
+  dataNasc: '',
+  bairro: '',
+  rua: '',
+  cpf: ''
+})
+
+async function submitForm() {
+  try {
+    console.log(formValues.value.telefone, formValues.value.dataNasc, formValues.value.bairro, formValues.value.rua,formValues.value.cpf)
+    const resposta = await axios.post('http://localhost/php_server/cadastro.php', {
+      telefone: formValues.value.telefone,
+      dataNasc: formValues.value.dataNasc,
+      bairro: formValues.value.bairro,
+      rua: formValues.value.rua,
+      cpf: formValues.value.cpf
+    });
+
+    console.log(resposta);
+    console.log(resposta.config.data);
+    console.log(resposta.data);
+    console.log(resposta.status);
+  } catch (error) {
+    console.error('Erro ao enviar o formulário:', error);
+  }
+}
+
+    // statusRequisicao.value = requisicao.data
+
+    // console.log(requisicao.data.message, requisicao.data.error);
+
+    // if (requisicao.data.message === 'Sucesso') {
+      // router.push('/login');
+    // } else {
+      // console.log(statusRequisicao.error);
+    // }
+// }
+
+// function submitForm() {
+//   console.log(formValues.value);
+// }
+</script>
+
+
 <style scoped>
+main {
+  background-color: #FDFDFD
+}
 .bg-body-tertiary {
   background-color: rgb(71, 71, 71) !important;
   color: white !important;
@@ -266,22 +323,3 @@ legend {
   }
 }
 </style>
-<script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import FooterCopy from '../components/FooterCopy.vue'
-const statusRequisicao = ref(null)
-const router = useRouter()
-
-const submitForm = async () => {
-  const requisicao = await axios.get('/src/server_php/cadastro.php')
-
-  statusRequisicao.value = requisicao.data
-
-  if (statusRequisicao.value === 'Sucesso') {
-    router.push('/login')
-  } else {
-    alert(statusRequisicao.value)
-  }
-}
-</script>
