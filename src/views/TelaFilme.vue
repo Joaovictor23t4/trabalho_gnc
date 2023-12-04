@@ -70,8 +70,4 @@ const movieStore = useMovieStore()
 
 const idFilme = ref(0);
 const indexFilme = ref(movieStore.indexFilme)
-
-onMounted(() => {
-  idFilme.value = $route.params.id
-})
 </script>
