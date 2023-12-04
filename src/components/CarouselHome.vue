@@ -68,16 +68,17 @@ linkCdn.setAttribute('referrerpolicy', 'no-referrer');
 
 document.head.appendChild(linkCdn);
 
-const destaquesJson = ref([])
+const destaquesJson = ref([]);
 
 onMounted(async () => {
   let response = await axios.get(
     `https://api-content.ingresso.com/v0/templates/highlights/16?partnership=joaovictorpr`
   )
 
-  destaquesJson.value = response.data
+  destaquesJson.value = response.data;
 
-  console.log(destaquesJson.value)
+
+  console.log(destaquesJson.value);
 })
 
 const settings = ref({
@@ -177,6 +178,7 @@ const hover = ref({ showElement: false })
 #firstVejaMais > a > i, .vejaMais > a > i  {
   margin-right: 8px;
 }
+</style>
 @media screen and (max-width: 425px) {
   #firstDestaque,
   .msgDestaque,
@@ -243,7 +245,9 @@ const hover = ref({ showElement: false })
 
   .firstGenresDuration,
   .genresDuration {
-    top: 120px; /* Ajuste conforme necessário */
+    top: 120px; /* Ajuste conforme necessário */>>>>>>> master
+264
+
   }
 
   #firstVejaMais,

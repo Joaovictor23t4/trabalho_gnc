@@ -15,14 +15,18 @@
         </div>
         <div id="containerList">
             <div v-for="(div, divIndex) in movies" :key="divIndex" class="divCard">
-                <span v-if="option.value === 'cartaz'">
-                    <img :src="div.images[0].url" alt="" class="imageCard">
-                </span>
+                <router-link @click="movieStore.indexFilme = divIndex" to='/tela-filme' v-if="option.value === 'cartaz'">
+                    <span>
+                        <img :src="div.images[0].url" alt="" class="imageCard">
+                    </span>
+                </router-link>
 
-                <span v-else>
-                    <img v-if="div.images.length > 0" :src="div.images[0].url" alt="" class="imageCard">
-                    <img v-else src="/src/assets/images/capa-substituta-filme.webp" alt="" class="imageCard">
-                </span>
+                <router-link @click="movieStore.indexFilme = divIndex" to='/tela-filme' v-else>
+                    <span>
+                        <img v-if="div.images.length > 0" :src="div.images[0].url" alt="" class="imageCard">
+                        <img v-else src="/src/assets/images/capa-substituta-filme.webp" alt="" class="imageCard">
+                    </span>
+                </router-link>
 
                 <img v-if="div.contentRating === 'Livre'" src="/src/assets/images/cr-livre.png" alt="" class="crCard">
                 <img v-else-if="div.contentRating === '10 anos'" src="/src/assets/images/cr-dez.png" alt="" class="crCard">
@@ -36,7 +40,9 @@
                     </div>
                 </span>
 
-                <p class="titleCard">{{ div.title }}</p>
+                <router-link :to="{name: 'tela-filme', params: { id: divIndex } }"> 
+                    <p class="titleCard">{{ div.title }}</p> 
+                </router-link>
             </div>
         </div>
         </div>
@@ -46,12 +52,13 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue';
 import axios from 'axios';
+import { useMovieStore } from '../stores/movie'
 
+const movieStore = useMovieStore();
 const option = ref('cartaz');
 const movies = ref([]);
 const paragraphCartaz = ref(null);
 const paragraphBreve = ref(null);
-
 
 onMounted(async () => {
     let listaFilmes = await axios.get('https://api-content.ingresso.com/v0/templates/nowplaying/16?partnership=joaovictorpr');
@@ -100,6 +107,10 @@ function changeColorOption(element) {
 </script>
 
 <style scoped>
+a {
+    text-decoration: none;
+}
+
 #containerGrid {
     display: grid;
     grid-template-columns: 10% 90%;
