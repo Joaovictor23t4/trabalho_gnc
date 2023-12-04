@@ -62,6 +62,7 @@
 }
 main {
   min-height: 500px !important;
+  background-color: white !important;
 }
 .btn {
   padding: 10px;

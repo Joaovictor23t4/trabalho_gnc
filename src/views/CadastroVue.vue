@@ -74,8 +74,7 @@
           </fieldset>
         </form>
       </div>
-    </div>
-  </main>
+</main>
   <FooterCopy />
 </template>
 
@@ -158,7 +157,9 @@ main {
   align-items: flex-start !important;
   height: 100px !important;
 }
-
+main {
+  background-color: white;
+}
 #container-box {
   display: flex;
   justify-content: center;
@@ -273,6 +274,28 @@ legend {
   width: 100%;
   background-color: #212529;
   color: white;
+}
+
+legend {
+  animation: efect 2s linear infinite;
+}
+
+@keyframes efect {
+  0% {
+    color: #b00000;
+  }
+
+  50% {
+    color: #018d5c;
+  }
+
+  75% {
+    color: #018d5c;
+  }
+
+  100% {
+    color: #b00000;
+  }
 }
 
 @media (max-width: 425px) {

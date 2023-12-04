@@ -76,6 +76,9 @@
 .col-direita {
   padding: 20px !important;
 }
+main {
+  background-color: white !important;
+}
 .meio-meio,
 .embaixo-meio,
 .topo-meio {

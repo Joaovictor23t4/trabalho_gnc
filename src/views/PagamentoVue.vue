@@ -78,6 +78,7 @@
   max-height: 250px !important;
 }
 main {
+  background-color: white !important;
   min-height: 500px !important;
 }
 .icons {

@@ -145,9 +145,13 @@ function handleSelectChange(event) {
 
 @media only screen and (max-width: 425px) {
   #bloco1 {
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 10px;
+  }
+
+  #container-usuario {
+    display: flex;
+    align-content: center;
   }
 
   #container-shopping {
@@ -179,11 +183,13 @@ function handleSelectChange(event) {
 /* Tablet (768px) */
 @media only screen and (min-width: 426px) and (max-width: 768px) {
   #nav-principal {
-    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   #bloco1 {
-    flex-direction: column;
+    display: flex !important;
     align-items: center;
     gap: 10px;
   }
@@ -195,7 +201,7 @@ function handleSelectChange(event) {
   }
 
   #container-shopping > select {
-    width: 100%;
+    width: 50%;
   }
 
   #bloco2 {
