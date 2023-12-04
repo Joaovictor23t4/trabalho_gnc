@@ -58,6 +58,9 @@ main {
   .col-meio {
     padding: 10px !important;
   }
+}
+</style>
+
 <script setup>
 import { ref, onMounted } from 'vue';
 import Header from '../components/Header.vue';
