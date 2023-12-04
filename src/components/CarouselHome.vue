@@ -9,7 +9,14 @@
   >
     <Slide v-for="(item, itemIndex) in destaquesJson" :key="itemIndex" class="marginSlide">
         <div>
-          <img :src="item.event.images[1].url" alt="" class="card-img" />
+          <span v-if="item.event.images.length === 2">
+            <img :src="item.event.images[1].url" alt="" class="card-img" />
+          </span>
+          
+          <span v-else>
+            <img src="/src/assets/images/capa-substituta-filme.webp" class="card-img" alt="">
+          </span>
+
           <div id="firstMovie" v-if="itemIndex === 0">
             <p id="firstDestaque">DESTAQUES</p>
             <p id="firstName">{{ item.event.title }}</p>
@@ -63,16 +70,17 @@ linkCdn.setAttribute('referrerpolicy', 'no-referrer');
 
 document.head.appendChild(linkCdn);
 
-const destaquesJson = ref([])
+const destaquesJson = ref([]);
 
 onMounted(async () => {
   let response = await axios.get(
     `https://api-content.ingresso.com/v0/templates/highlights/16?partnership=joaovictorpr`
   )
 
-  destaquesJson.value = response.data
+  destaquesJson.value = response.data;
 
-  console.log(destaquesJson.value)
+
+  console.log(destaquesJson.value);
 })
 
 const settings = ref({
