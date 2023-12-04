@@ -15,11 +15,13 @@
       </div>
     </nav>
   </div>
+  <!-- Começo da página -->
   <main>
     <div class="row">
+      <!-- Nomes -->
       <div class="col-6">
         <div class="box">
-          <img src="../assets/images/joao.jpg" alt="" />
+          <img src="../assets/images/Joao.jpg" alt="" />
           <p>Nome: João Victor Portela Rocha</p>
           <p>Turma: 1INFO3</p>
           <p>Email: joaovictor239090@gmail.com</p>
@@ -33,8 +35,10 @@
           <p>Email: luiz.fernando.251107@gmail.com</p>
         </div>
       </div>
+      <!-- Fim dos nomes -->
     </div>
   </main>
+  <!-- Fim da página -->
   <Footer />
   <FooterCopy />
 </template>
@@ -58,6 +62,9 @@
   align-items: flex-start !important;
   height: 100px !important;
 }
+main {
+  background-color: white;
+}
 .row {
   --bs-gutter-x: none !important;
   padding: 20px !important;
@@ -66,8 +73,8 @@
   align-items: center !important;
 }
 .col-6 {
-    display: flex !important;
-    justify-content: center !important;
+  display: flex !important;
+  justify-content: center !important;
 }
 .box {
   width: 70%;

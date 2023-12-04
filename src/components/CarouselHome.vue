@@ -13,7 +13,7 @@
             <img :src="item.event.images[1].url" alt="" class="card-img" />
           </span>
           <span v-else>
-            <img src="/src/assets/images/capa-substituta-filme.webp" alt="" class="card-img">
+            <img src="/src/assets/images/capa-substituta-filme.webp" alt="" class="card-img" />
           </span>
           <div id="firstMovie" v-if="itemIndex === 0">
             <p id="firstDestaque">DESTAQUES</p>
@@ -177,5 +177,88 @@ const hover = ref({ showElement: false })
 
 #firstVejaMais > a > i, .vejaMais > a > i  {
   margin-right: 8px;
+}
+</style>
+@media screen and (max-width: 425px) {
+  #firstDestaque,
+  .msgDestaque,
+  #firstName,
+  .nameFilm,
+  .firstGenresDuration,
+  .genresDuration,
+  #firstVejaMais,
+  .vejaMais {
+    font-size: 14px;
+  }
+  
+  .firstGenresDuration,
+  .genresDuration {
+    top: 40px; /* Ajuste conforme necessário */
+  }
+  
+  #firstVejaMais,
+  .vejaMais {
+    font-size: 16px; /* Ajuste conforme necessário */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #firstDestaque,
+  .msgDestaque,
+  #firstName,
+  .nameFilm,
+  .firstGenresDuration,
+  .genresDuration,
+  #firstVejaMais,
+  .vejaMais {
+    position: static;
+    text-align: center;
+  }
+  
+  .firstGenresDuration,
+  .genresDuration {
+    top: 10px; /* Ajuste conforme necessário */
+  }
+}
+@media screen and (max-width: 1024px) {
+  #firstDestaque,
+  .msgDestaque,
+  #firstName,
+  .nameFilm,
+  .firstGenresDuration,
+  .genresDuration,
+  #firstVejaMais,
+  .vejaMais {
+    font-size: 18px; /* Ajuste conforme necessário */
+  }
+
+  #firstDestaque,
+  .msgDestaque {
+    top: 40px; /* Ajuste conforme necessário */
+  }
+
+  #firstName,
+  .nameFilm {
+    font-size: 30px; /* Ajuste conforme necessário */
+    top: 70px; /* Ajuste conforme necessário */
+  }
+
+  .firstGenresDuration,
+  .genresDuration {
+    top: 120px; /* Ajuste conforme necessário */>>>>>>> master
+264
+
+  }
+
+  #firstVejaMais,
+  .vejaMais {
+    top: 180px; /* Ajuste conforme necessário */
+    font-size: 24px; /* Ajuste conforme necessário */
+  }
+
+  #firstVejaMais > a > i,
+  .vejaMais > a > i {
+    margin-right: 5px; /* Ajuste conforme necessário */
+  }
 }
 </style>
