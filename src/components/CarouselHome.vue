@@ -1,5 +1,11 @@
 <template>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <Carousel
     v-bind="settings"
     :transition="1000"
@@ -8,41 +14,41 @@
     @mouseleave="showElement = false"
   >
     <Slide v-for="(item, itemIndex) in destaquesJson" :key="itemIndex" class="marginSlide">
-        <div>
-          <span v-if="item.event.images.length === 2">
-            <img :src="item.event.images[1].url" alt="" class="card-img" />
-          </span>
-          <span v-else>
-            <img src="/src/assets/images/capa-substituta-filme.webp" alt="" class="card-img" />
-          </span>
-          <div id="firstMovie" v-if="itemIndex === 0">
-            <p id="firstDestaque">DESTAQUES</p>
-            <p id="firstName">{{ item.event.title }}</p>
-            <div class="firstGenresDuration">
-              <span v-for="(genres, genresIndex) in item.event.genres" :key="genresIndex">
-                {{ genres }} -
-              </span>
-              <span>{{ item.event.duration }} minutos</span>
-            </div>
-            <div id="firstVejaMais">
-              <router-link to="tela-filme"><i class="fa fa-film"></i>Veja mais</router-link>
-            </div>
+      <div>
+        <span v-if="item.event.images.length === 2">
+          <img :src="item.event.images[1].url" alt="" class="card-img" />
+        </span>
+        <span v-else>
+          <img src="/src/assets/images/capa-substituta-filme.webp" alt="" class="card-img" />
+        </span>
+        <div id="firstMovie" v-if="itemIndex === 0">
+          <p id="firstDestaque">DESTAQUES</p>
+          <p id="firstName">{{ item.event.title }}</p>
+          <div class="firstGenresDuration">
+            <span v-for="(genres, genresIndex) in item.event.genres" :key="genresIndex">
+              {{ genres }} -
+            </span>
+            <span>{{ item.event.duration }} minutos</span>
           </div>
-
-          <div class="otherMovies" v-else>
-            <p class="msgDestaque">DESTAQUES</p>
-            <p class="nameFilm">{{ item.event.title }}</p>
-            <div class="genresDuration">
-              <span v-for="(genres, genresIndex) in item.event.genres" :key="genresIndex">
-                {{ genres }} -
-              </span>
-              <span>{{ item.event.duration }} minutos</span>
-            </div>
-            <div class="vejaMais">
-              <router-link to="tela-filme"><i class="fa fa-film"></i>Veja mais</router-link>
-            </div>
+          <div id="firstVejaMais">
+            <router-link to="tela-filme"><i class="fa fa-film"></i>Veja mais</router-link>
           </div>
         </div>
+
+        <div class="otherMovies" v-else>
+          <p class="msgDestaque">DESTAQUES</p>
+          <p class="nameFilm">{{ item.event.title }}</p>
+          <div class="genresDuration">
+            <span v-for="(genres, genresIndex) in item.event.genres" :key="genresIndex">
+              {{ genres }} -
+            </span>
+            <span>{{ item.event.duration }} minutos</span>
+          </div>
+          <div class="vejaMais">
+            <router-link to="tela-filme"><i class="fa fa-film"></i>Veja mais</router-link>
+          </div>
+        </div>
+      </div>
     </Slide>
 
     <template #addons>
@@ -60,25 +66,27 @@ import axios from 'axios'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
-let linkCdn = document.createElement("link");
-linkCdn.setAttribute('rel', 'stylesheet');
-linkCdn.setAttribute('href', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==');
-linkCdn.setAttribute('crossorigin', 'anonymous');
-linkCdn.setAttribute('referrerpolicy', 'no-referrer');
+let linkCdn = document.createElement('link')
+linkCdn.setAttribute('rel', 'stylesheet')
+linkCdn.setAttribute(
+  'href',
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=='
+)
+linkCdn.setAttribute('crossorigin', 'anonymous')
+linkCdn.setAttribute('referrerpolicy', 'no-referrer')
 
-document.head.appendChild(linkCdn);
+document.head.appendChild(linkCdn)
 
-const destaquesJson = ref([]);
+const destaquesJson = ref([])
 
 onMounted(async () => {
   let response = await axios.get(
     `https://api-content.ingresso.com/v0/templates/highlights/16?partnership=joaovictorpr`
   )
 
-  destaquesJson.value = response.data;
+  destaquesJson.value = response.data
 
-
-  console.log(destaquesJson.value);
+  console.log(destaquesJson.value)
 })
 
 const settings = ref({
@@ -245,8 +253,6 @@ const hover = ref({ showElement: false })
   .firstGenresDuration,
   .genresDuration {
     top: 120px; 
-264
-
   }
 
   #firstVejaMais,
