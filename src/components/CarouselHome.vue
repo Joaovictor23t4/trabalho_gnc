@@ -178,8 +178,7 @@ const hover = ref({ showElement: false })
 #firstVejaMais > a > i, .vejaMais > a > i  {
   margin-right: 8px;
 }
-</style>
-@media screen and (max-width: 425px) {
+  @media screen and (max-width: 425px) {
   #firstDestaque,
   .msgDestaque,
   #firstName,
@@ -245,7 +244,7 @@ const hover = ref({ showElement: false })
 
   .firstGenresDuration,
   .genresDuration {
-    top: 120px; /* Ajuste conforme necessário */>>>>>>> master
+    top: 120px; 
 264
 
   }
