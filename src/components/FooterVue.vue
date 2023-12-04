@@ -167,12 +167,13 @@ iframe {
   margin-top: 20px; /* Ajuste conforme necessário */
 }
 
-.router-link {
+.router {
   text-decoration: none;
 }
 
 button {
   display: inline-block;
+  border: none;
   padding: 10px 20px;
   letter-spacing: 2px;
   font-size: 28px;
