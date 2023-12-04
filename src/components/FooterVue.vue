@@ -161,18 +161,20 @@ iframe {
 #infoGnc:hover, #infoGarten:hover, #infoMueller:hover, #refTop:hover, #refIngresso:hover {
   transition: .2s;
   color: #c30000;
+}
 
 #input_group {
   text-align: center;
   margin-top: 20px; /* Ajuste conforme necessário */
 }
 
-.router-link {
+.router {
   text-decoration: none;
 }
 
 button {
   display: inline-block;
+  border: none;
   padding: 10px 20px;
   letter-spacing: 2px;
   font-size: 28px;
