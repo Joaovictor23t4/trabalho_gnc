@@ -12,11 +12,9 @@
           <span v-if="item.event.images.length === 2">
             <img :src="item.event.images[1].url" alt="" class="card-img" />
           </span>
-          
           <span v-else>
-            <img src="/src/assets/images/capa-substituta-filme.webp" class="card-img" alt="">
+            <img src="/src/assets/images/capa-substituta-filme.webp" alt="" class="card-img">
           </span>
-
           <div id="firstMovie" v-if="itemIndex === 0">
             <p id="firstDestaque">DESTAQUES</p>
             <p id="firstName">{{ item.event.title }}</p>

@@ -1,80 +1,144 @@
 <template>
-  <div class="container-pai">
-    <nav class="navbar navbar-expand-lg bg-dark">
-      <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <img src="../gnc-logo.png" alt="" width="100" height="100" class="logo" />
+  <main>
+    <div class="container-pai">
+      <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <img src="../assets/images/gnc-logo.png" alt="" width="100" height="100" class="logo" />
+          </div>
         </div>
-      </div>
-    </nav>
-    <nav class="navbar bg-body-tertiary">
-      <div class="container-fluid nav-cad">
-        <h1>Cadastre-se</h1>
-      </div>
-    </nav>
-  </div>
-  <div id="container-box">
-    <div class="box">
-      <form action="/cadastro.php" method="POST">
-        <fieldset>
-          <legend><b>Formulário de clientes</b></legend>
-          <div class="inputBox">
-            <input type="text" name="nome" id="nome" class="inputUser" required />
-            <label for="nome" class="labelInput">Nome Completo</label>
-          </div>
-          <div class="inputBox">
-            <input type="email" name="email" id="email" class="inputUser" required />
-            <label for="email" class="labelInput">Email</label>
-          </div>
-          <div class="inputBox">
-            <input type="password" name="senha" id="senha" class="inputUser" required maxlength="30"/>
-            <label for="senha" class="labelInput">Senha</label>
-          </div>
-          <div class="inputBox">
-            <input type="tel" name="telefone" id="telefone" class="inputUser" required maxlength="30"/>
-            <label for="telefone" class="labelInput">Telefone</label>
-          </div>
-          <label for="data_nascimento"><b>Data de Nascimento:</b></label>
-          <input type="date" name="data_nascimento" id="data_nascimento" required />
-          <div class="inputBox">
-            <input type="text" name="bairro" id="bairro" class="inputUser" required />
-            <label for="bairro" class="labelInput">Bairro</label>
-          </div>
-          <div class="inputBox">
-            <input type="text" name="rua" id="rua" class="inputUser" required />
-            <label for="rua" class="labelInput">Rua</label>
-          </div>
-          <div class="inputBox">
-            <input type="text" name="cpf" id="cpf" class="inputUser" required maxlength="11" />
-            <label for="cpf" class="labelInput">CPF</label>
-          </div>
-          <input type="submit" name="submit" id="submit" />
-        </fieldset>
-      </form>
+      </nav>
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid nav-cad">
+          <h1>Cadastre-se</h1>
+        </div>
+      </nav>
     </div>
-  </div>
+    <div id="container-box">
+      <div class="box">
+        <form action="/cadastro.php" method="POST">
+          <fieldset>
+            <legend><b>Formulário de clientes</b></legend>
+            <div class="inputBox">
+              <input type="text" name="nome" id="nome" class="inputUser" required />
+              <label for="nome" class="labelInput">Nome Completo</label>
+            </div>
+            <div class="inputBox">
+              <input type="email" name="email" id="email" class="inputUser" required />
+              <label for="email" class="labelInput">Email</label>
+            </div>
+            <div class="inputBox">
+              <input
+                type="password"
+                name="senha"
+                id="senha"
+                class="inputUser"
+                required
+                maxlength="30"
+              />
+              <label for="senha" class="labelInput">Senha</label>
+            </div>
+            <div class="inputBox">
+              <input
+                type="tel"
+                name="telefone"
+                id="telefone"
+                class="inputUser"
+                required
+                maxlength="30"
+              />
+              <label for="telefone" class="labelInput">Telefone</label>
+            </div>
+            <label for="data_nascimento"><b>Data de Nascimento:</b></label>
+            <input type="date" name="data_nascimento" id="data_nascimento" required />
+            <div class="inputBox">
+              <input type="text" name="bairro" id="bairro" class="inputUser" required />
+              <label for="bairro" class="labelInput">Bairro</label>
+            </div>
+            <div class="inputBox">
+              <input type="text" name="rua" id="rua" class="inputUser" required />
+              <label for="rua" class="labelInput">Rua</label>
+            </div>
+            <div class="inputBox">
+              <input type="text" name="cpf" id="cpf" class="inputUser" required maxlength="11" />
+              <label for="cpf" class="labelInput">CPF</label>
+            </div>
+            <div class="buttons">
+              <router-link to="/login">
+              <button type="submit" name="submit" id="submit">Voltar para o login</button>
+              </router-link>
+              <router-link to="/">
+                <button type="submit" id="submit">Finalizar Cadastro!</button>
+              </router-link>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </main>
   <FooterCopy />
 </template>
-<script>
-import { ref } from 'vue'
+
+<script setup>
+import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import axios from 'axios'
+import FooterCopy from '../components/FooterCopy.vue'
 
 const statusRequisicao = ref(null)
 const router = useRouter()
+const formValues = ref({
+  nome: '',
+  email: '',
+  senha: '',
+  telefone: '',
+  dataNasc: '',
+  bairro: '',
+  rua: '',
+  cpf: ''
+})
 
-const submitForm = async () => {
-  const requisicao = await axios.get('/src/server_php/cadastro.php')
+async function submitForm() {
+  try {
+    console.log(formValues.value.telefone, formValues.value.dataNasc, formValues.value.bairro, formValues.value.rua,formValues.value.cpf)
+    const resposta = await axios.post('http://localhost/php_server/cadastro.php', {
+      telefone: formValues.value.telefone,
+      dataNasc: formValues.value.dataNasc,
+      bairro: formValues.value.bairro,
+      rua: formValues.value.rua,
+      cpf: formValues.value.cpf
+    });
 
-  statusRequisicao.value = requisicao.data
-
-  if (statusRequisicao.value === 'Sucesso') {
-    router.push('/login')
-  } else {
-    alert(statusRequisicao.value)
+    console.log(resposta);
+    console.log(resposta.config.data);
+    console.log(resposta.data);
+    console.log(resposta.status);
+  } catch (error) {
+    console.error('Erro ao enviar o formulário:', error);
   }
 }
+
+    // statusRequisicao.value = requisicao.data
+
+    // console.log(requisicao.data.message, requisicao.data.error);
+
+    // if (requisicao.data.message === 'Sucesso') {
+      // router.push('/login');
+    // } else {
+      // console.log(statusRequisicao.error);
+    // }
+// }
+
+// function submitForm() {
+//   console.log(formValues.value);
+// }
 </script>
+
+
 <style scoped>
+main {
+  background-color: #FDFDFD
+}
 .bg-body-tertiary {
   background-color: rgb(71, 71, 71) !important;
   color: white !important;
@@ -129,7 +193,13 @@ legend {
 .inputBox {
   position: relative;
 }
-
+.buttons {
+  margin: 10px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 .inputUser {
   background: none;
   border: none;
@@ -230,6 +300,3 @@ legend {
   }
 }
 </style>
-<script>
-import FooterCopy from '../components/FooterCopy.vue'
-</script>
