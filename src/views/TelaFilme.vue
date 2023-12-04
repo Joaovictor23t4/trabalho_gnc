@@ -26,6 +26,15 @@
 main {
   background-color: white !important;
 }
+  
+#banner {
+  width: 100%;
+}
+
+#img-banner {
+  width: 100%;
+  height: 100%;
+}
 .meio-meio,
 .embaixo-meio,
 .topo-meio {
@@ -63,14 +72,3 @@ onMounted(() => {
   idFilme.value = $route.params.id
 })
 </script>
-
-<style scoped>
-#banner {
-  width: 100%;
-}
-
-#img-banner {
-  width: 100%;
-  height: 100%;
-}
-</style>
