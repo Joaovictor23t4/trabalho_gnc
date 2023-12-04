@@ -21,7 +21,7 @@
       <!-- Nomes -->
       <div class="col-6">
         <div class="box">
-          <img src="../assets/images/joao.jpg" alt="" />
+          <img src="../assets/images/Joao.jpg" alt="" />
           <p>Nome: João Victor Portela Rocha</p>
           <p>Turma: 1INFO3</p>
           <p>Email: joaovictor239090@gmail.com</p>
