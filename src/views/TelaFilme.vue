@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <Header @parametroShopping="changeId"/>
     <section id="banner">
         <img v-if="responseFilme.images.length === 2" :src="responseFilme.images[1].url" alt="" class="img-banner">
         <img v-else src="/src/assets/images/banner-substituto-filme.jpg" alt="" class="img-banner">
@@ -35,12 +35,16 @@
             <div id="sinopse">
               <p id="textoSinopse">{{responseFilme.synopsis}}</p>
             </div>
+
+            <div id="cinema">
+              <p id="textoCinema">Você escolheu ver o filme no <span>{{ correctionName }}</span></p>
+            </div>
           </div>
         </section>
     </section>
 
     <section>
-      <Sessoes :title="responseFilme.title" idCinema="851"/>
+      <Sessoes :title="responseFilme.title" :idCinema="nameCine"/>
     </section>
   </div>
 </template>
@@ -54,18 +58,45 @@ import { useMovieStore } from '../stores/movie';
 
 const movieStore = useMovieStore()
 const indexFilme = ref(movieStore.indexFilme);
-const responseFilme = ref([])
+const optionData = ref(movieStore.optionFilme);
+const titleFilme = ref(movieStore.titleFilme);
+const responseFilme = ref([]);
+const nameCine = ref(movieStore.cine)
+const correctionName = (nameCine.value === 'mueller') ? "Mueller" : "Garten";
+
+// console.log(movieStore.indexFilme, movieStore.optionFilme, movieStore.titleFilme);
 
 async function consultarApi() {
   // console.log(indexFilme.value)
 
-  let filmeGet = await axios.get('https://api-content.ingresso.com/v0/templates/nowplaying/16?partnership=joaovictorpr');
+  if (optionData.value === "cartaz") {
+    let filmeGet = await axios.get('https://api-content.ingresso.com/v0/templates/nowplaying/16?partnership=joaovictorpr');
 
-  responseFilme.value = filmeGet.data[indexFilme.value];
+    if (indexFilme.value === null) {
+      for (let c = 0; c < filmeGet.data.length; c++) {
+        if (filmeGet.data[c].title === titleFilme.value) {
+          responseFilme.value = filmeGet.data[c];
+        }
+      }
+    } else {
+      responseFilme.value = filmeGet.data[indexFilme.value]
+    }
 
-  // console.log(filmeGet.data[1].images[1].url);
+    // console.log(filmeGet.data[1].images[1].url);
 
-  console.log(responseFilme.value);
+    // console.log(responseFilme.value);
+  } else {
+    let filmeGet = await axios.get('https://api-content.ingresso.com/v0/templates/soon/16?partnership=joaovictorpr');
+
+    responseFilme.value = filmeGet.data[indexFilme.value];
+
+    // console.log(responseFilme.value);
+  }
+}
+
+function changeId(value) {
+  nameCine.value = value;
+  // console.log(nameCine.value);
 }
 
 consultarApi();
@@ -98,7 +129,6 @@ consultarApi();
 }
 
 #imgCapa > img {
-  width: 100%;
   height: 100%;
 }
 
@@ -137,5 +167,13 @@ consultarApi();
 #textoSinopse {
   width: 100%;
   color: #FDFDFD;
+}
+
+#textoCinema {
+  color: #FDFDFD;
+}
+
+#textoCinema > span {
+  text-decoration: underline;
 }
 </style>

@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-const props = defineProps(['title', 'idCinema']);
+import { ref } from 'vue';
 </script>

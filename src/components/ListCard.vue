@@ -15,13 +15,13 @@
         </div>
         <div id="containerList">
             <div v-for="(div, divIndex) in movies" :key="divIndex" class="divCard">
-                <router-link @click="movieStore.indexFilme = divIndex" to='/tela-filme' v-if="option.value === 'cartaz'">
+                <router-link @click="movieStore.indexFilme = divIndex; movieStore.optionFilme = option; movieStore.titleFilme = div.title" to='/tela-filme' v-if="option.value === 'cartaz'">
                     <span>
                         <img :src="div.images[0].url" alt="" class="imageCard">
                     </span>
                 </router-link>
 
-                <router-link @click="movieStore.indexFilme = divIndex" to='/tela-filme' v-else>
+                <router-link @click="movieStore.indexFilme = divIndex; movieStore.optionFilme = option; movieStore.titleFilme = div.title" to='/tela-filme' v-else>
                     <span>
                         <img v-if="div.images.length > 0" :src="div.images[0].url" alt="" class="imageCard">
                         <img v-else src="/src/assets/images/capa-substituta-filme.webp" alt="" class="imageCard">
@@ -40,9 +40,7 @@
                     </div>
                 </span>
 
-                <router-link :to="{name: 'tela-filme', params: { id: divIndex } }"> 
-                    <p class="titleCard">{{ div.title }}</p> 
-                </router-link>
+                <p class="titleCard">{{ div.title }}</p> 
             </div>
         </div>
         </div>
