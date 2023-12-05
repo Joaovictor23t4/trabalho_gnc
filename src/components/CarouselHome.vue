@@ -8,12 +8,12 @@
     @mouseleave="showElement = false"
   >
     <Slide v-for="(item, itemIndex) in destaquesJson" :key="itemIndex" class="marginSlide">
-        <div>
+        <div class="widthLi">
           <span v-if="item.event.images.length === 2">
             <img :src="item.event.images[1].url" alt="" class="card-img" />
           </span>
-          <span v-else>
-            <img src="/src/assets/images/capa-substituta-filme.webp" alt="" class="card-img" />
+          <span v-else id="span-alternativo">
+            <img src="/src/assets/images/banner-substituto-filme.jpg" alt="" class="card-img" />
           </span>
           <div id="firstMovie" v-if="itemIndex === 0">
             <p id="firstDestaque">DESTAQUES</p>
@@ -178,7 +178,22 @@ const hover = ref({ showElement: false })
 #firstVejaMais > a > i, .vejaMais > a > i  {
   margin-right: 8px;
 }
-</style>
+
+.widthLi {
+  width: 100%;
+}
+
+#span-alternativo {
+  display: inline-block;
+  width: 100%;
+  height: 399px;
+}
+
+#span-alternativo > img {
+  width: 100%;
+  height: 100%;
+}
+
 @media screen and (max-width: 425px) {
   #firstDestaque,
   .msgDestaque,
@@ -245,9 +260,7 @@ const hover = ref({ showElement: false })
 
   .firstGenresDuration,
   .genresDuration {
-    top: 120px; /* Ajuste conforme necessário */>>>>>>> master
-264
-
+    top: 120px; /* Ajuste conforme necessário */
   }
 
   #firstVejaMais,
