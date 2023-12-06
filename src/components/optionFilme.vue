@@ -9,13 +9,13 @@
       <section id="sessionInfo">
         <div id="dayWeek">
           <ul id="listDays">
-            <li></li>
+            <li v-for="(day, dayIndex) in infoData" :key="dayIndex" class="day">{{ day.dateFormatted }} <span v-if="day.isToday === true">Hoje</span> <span v-else>{{(day.dayOfWeek === "segunda-feira") ? "Seg" : (day.dayOfWeek === "terça-feira") ? "Ter" : (day.dayOfWeek === "quarta-feira") ? "Qua" : (day.dayOfWeek === "quinta-feira") ? "Qui" : (day.dayOfWeek === "sexta-feira") ? "Sex" : (day.dayOfWeek === "sábado") ? "Sáb" : "Dom"}}</span></li>
           </ul>
         </div>
       </section>
       </section>
 
-      <button @click="teste">TESTE</button>
+      <!-- <button @click="teste">TESTE</button> -->
     </section>
 </template>
 
@@ -25,24 +25,27 @@ import axios from 'axios';
 
 const props = defineProps(['title', 'idCinema']);
 const infoData = ref([]);
+const sessionFilme = ref([]);
 const paragraphSession = ref(null);
 const paragraphAbout = ref(null);
+const elementsDay = ref([]);
 
 onMounted(async () => {
   const nameForIdCine = (props.idCinema === 'mueller') ? "851" : "146";
 
   let dataGet = await axios.get(`https://api-content.ingresso.com/v0/sessions/city/16/theater/${nameForIdCine}?partnership=joaovictorpr`);
 
-  for (let c = 0; c < dataGet.data.length; c++) {
-    for (let i = 0; i < dataGet.data[c].movies.length; i++) {
-      if (dataGet.data[c].movies[i].title === props.title) {
-        infoData.value = dataGet.data[c];
-      }
-    }
+  infoData.value = dataGet.data;
+
+  const documentClass = document.getElementsByClassName("day");
+
+  elementsDay.value = documentClass;
+
+  if (elementsDay.value.length > 0) {
+    console.log(elementsDay.value[0]);
   }
 
-  console.log(dataGet.data);
-  console.log(props.title);
+  console.log(infoData.value);
 
   paragraphSession.value.classList.add('chosen');
   paragraphAbout.value.classList.add('reserved');
@@ -131,7 +134,24 @@ ol, ul {
 }
 
 #listDays {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  width: 100%;
   list-style: none;
+  gap: 30px;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.8em;
+  color: #FDFDFD;
+}
+
+.day > span {
+  position: relative;
+  right: 2px;
 }
 </style>
