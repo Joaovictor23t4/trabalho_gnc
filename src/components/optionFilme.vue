@@ -12,6 +12,8 @@
             <li v-for="(day, dayIndex) in infoData" :key="dayIndex" class="day">{{ day.dateFormatted }} <span v-if="day.isToday === true">Hoje</span> <span v-else>{{(day.dayOfWeek === "segunda-feira") ? "Seg" : (day.dayOfWeek === "terça-feira") ? "Ter" : (day.dayOfWeek === "quarta-feira") ? "Qua" : (day.dayOfWeek === "quinta-feira") ? "Qui" : (day.dayOfWeek === "sexta-feira") ? "Sex" : (day.dayOfWeek === "sábado") ? "Sáb" : "Dom"}}</span></li>
           </ul>
         </div>
+
+        <div v-for="(teste, testeIndex) in elementsDay" :key="testeIndex">{{ teste.textContent }} {{ testeIndex }}</div>
       </section>
       </section>
 
@@ -20,7 +22,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import axios from 'axios';
 
 const props = defineProps(['title', 'idCinema']);
@@ -41,10 +43,7 @@ onMounted(async () => {
 
   elementsDay.value = documentClass;
 
-  if (elementsDay.value.length > 0) {
-    console.log(elementsDay.value[0]);
-  }
-
+  console.log(documentClass);
   console.log(infoData.value);
 
   paragraphSession.value.classList.add('chosen');
@@ -68,6 +67,10 @@ function changeInfoMovies(element) {
 function teste() {
   console.log(infoData.value, Object.keys(infoData.value).length === 0)
 }
+
+watch(elementsDay, async (newValue, oldValue) => {
+
+})
 </script>
 
 <style scoped>
@@ -131,6 +134,9 @@ ol, ul {
   display: flex;
   justify-content: center;
   width: 80%;
+  background-color: #231f1f;
+  padding: 10px 30px 0px 30px;
+  border-radius: 10px;
 }
 
 #listDays {
