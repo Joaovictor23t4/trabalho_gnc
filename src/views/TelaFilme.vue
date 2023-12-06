@@ -37,15 +37,13 @@
             </div>
 
             <div id="cinema">
-              <p id="textoCinema">Você escolheu ver o filme no <span>{{ correctionName }}</span></p>
+              <p id="textoCinema">Você escolheu ver o filme no <span>Shopping {{ correctionName }}</span></p>
             </div>
           </div>
         </section>
     </section>
 
-    <section>
-      <Sessoes :title="responseFilme.title" :idCinema="nameCine"/>
-    </section>
+    <OptionFilme :title="responseFilme.title" :idCinema="nameCine"/>
   </div>
 </template>
 
@@ -53,7 +51,7 @@
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import Header from '../components/Header.vue';
-import Sessoes from '../components/Sessoes.vue'
+import OptionFilme from '../components/optionFilme.vue'
 import { useMovieStore } from '../stores/movie';
 
 const movieStore = useMovieStore()
@@ -63,8 +61,6 @@ const titleFilme = ref(movieStore.titleFilme);
 const responseFilme = ref([]);
 const nameCine = ref(movieStore.cine)
 const correctionName = (nameCine.value === 'mueller') ? "Mueller" : "Garten";
-
-// console.log(movieStore.indexFilme, movieStore.optionFilme, movieStore.titleFilme);
 
 async function consultarApi() {
   // console.log(indexFilme.value)
