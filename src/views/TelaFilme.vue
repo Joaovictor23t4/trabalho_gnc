@@ -152,8 +152,9 @@ consultarApi();
 
 .crCard {
     position: relative;
-    width: 20px;
-    height: 20px;
+    top: 2px;
+    width: 18px;
+    height: 18px;
 }
 
 #sinopse {

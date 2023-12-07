@@ -6,15 +6,25 @@
             <li ref="paragraphAbout" @click="changeInfoMovies('pAbout')">Sobre o Filme</li>
           </ul>
 
-      <section id="sessionInfo">
-        <div id="dayWeek">
-          <ul id="listDays">
-            <li v-for="(day, dayIndex) in infoData" :key="dayIndex" class="day">{{ day.dateFormatted }} <span v-if="day.isToday === true">Hoje</span> <span v-else>{{(day.dayOfWeek === "segunda-feira") ? "Seg" : (day.dayOfWeek === "terça-feira") ? "Ter" : (day.dayOfWeek === "quarta-feira") ? "Qua" : (day.dayOfWeek === "quinta-feira") ? "Qui" : (day.dayOfWeek === "sexta-feira") ? "Sex" : (day.dayOfWeek === "sábado") ? "Sáb" : "Dom"}}</span></li>
-          </ul>
-        </div>
+        <section id="sessionInfo">
+          <div id="dayWeek">
+            <ul id="listDays" ref="ulDays">
+              <li v-for="(day, dayIndex) in infoData" :key="dayIndex" :class="(dayIndex === 0) ? 'chosenDay' : 'reservedDay'" @click="changeDay(dayIndex)">{{ day.dateFormatted }} <span v-if="day.isToday === true">Hoje</span> <span v-else>{{(day.dayOfWeek === "segunda-feira") ? "Seg" : (day.dayOfWeek === "terça-feira") ? "Ter" : (day.dayOfWeek === "quarta-feira") ? "Qua" : (day.dayOfWeek === "quinta-feira") ? "Qui" : (day.dayOfWeek === "sexta-feira") ? "Sex" : (day.dayOfWeek === "sábado") ? "Sáb" : "Dom"}}</span></li>
+            </ul>
+          </div>
 
-        <div v-for="(teste, testeIndex) in elementsDay" :key="testeIndex">{{ teste.textContent }} {{ testeIndex }}</div>
-      </section>
+        </section>
+
+        <section id="existingSessions">
+          <div id="infosShopping">
+            <h1 id="cineSession">GNC Shopping {{props.idCinema}}</h1>
+            <p id="address">{{(props.idCinema === 'mueller') ? 'R. Visconde de Taunay, 235' : 'Av. Rolf West, 333'}} <span>|</span> {{(props.idCinema === 'mueller') ? 'Centro' : 'Bom Retiro'}}</p>
+
+          </div>
+
+          <hr class="breakLine">
+        </section>
+
       </section>
 
       <!-- <button @click="teste">TESTE</button> -->
@@ -30,7 +40,7 @@ const infoData = ref([]);
 const sessionFilme = ref([]);
 const paragraphSession = ref(null);
 const paragraphAbout = ref(null);
-const elementsDay = ref([]);
+const ulDays = ref(null);
 
 onMounted(async () => {
   const nameForIdCine = (props.idCinema === 'mueller') ? "851" : "146";
@@ -39,16 +49,11 @@ onMounted(async () => {
 
   infoData.value = dataGet.data;
 
-  const documentClass = document.getElementsByClassName("day");
-
-  elementsDay.value = documentClass;
-
-  console.log(documentClass);
   console.log(infoData.value);
 
   paragraphSession.value.classList.add('chosen');
   paragraphAbout.value.classList.add('reserved');
-})
+});
 
 function changeInfoMovies(element) {
   if (element === 'pSession') {
@@ -68,9 +73,22 @@ function teste() {
   console.log(infoData.value, Object.keys(infoData.value).length === 0)
 }
 
-watch(elementsDay, async (newValue, oldValue) => {
+function changeDay(indiceClick) {
+  console.log(ulDays.value.children[indiceClick].className);
+  let indiceChosen = 0;
+  for (let c = 0; c < ulDays.value.children.length; c++) {
+    if (ulDays.value.children[c].className === "chosenDay") {
+      indiceChosen = c;
+    }
+  }
+  console.log(indiceChosen);
 
-})
+  ulDays.value.children[indiceChosen].classList.remove("chosenDay");
+  ulDays.value.children[indiceChosen].classList.add("reservedDay");
+
+  ulDays.value.children[indiceClick].classList.remove("reservedDay");
+  ulDays.value.children[indiceClick].classList.add("chosenDay");
+}
 </script>
 
 <style scoped>
@@ -148,16 +166,67 @@ ol, ul {
   gap: 30px;
 }
 
-.day {
+.chosenDay, .reservedDay {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1.8em;
+  justify-content: center;
   color: #FDFDFD;
+  cursor: pointer;
 }
 
-.day > span {
+.chosenDay > span, .reservedDay > span {
   position: relative;
   right: 2px;
+}
+
+.chosenDay {
+  color: #028657;
+  font-size: 1.5em;
+}
+
+.reservedDay {
+  color: #004686;
+  font-size: 1.3em;
+  opacity: .8;
+}
+
+#existingSessions {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  background-color: #231f1f;
+  border-radius: 10px;
+}
+
+#infosShopping {
+  padding: 10px 30px 0px 30px;
+}
+
+#cineSession {
+  font-size: 1em;
+  text-transform: capitalize;
+  color: #028657;
+  font-weight: 600;
+}
+
+#address {
+  color: #868585;
+  font-size: 0.85em;
+}
+
+#address > span {
+  position: relative;
+  bottom: 1px;
+}
+
+.breakLine {
+  display: block;
+  position: relative;
+  bottom: 10px;
+  width: 95%;
+  margin-left: 15px;
+  height: 2px;
+  background-color: #ccc;
 }
 </style>
