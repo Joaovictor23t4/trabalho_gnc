@@ -14,38 +14,43 @@
     @mouseleave="showElement = false"
   >
     <Slide v-for="(item, itemIndex) in destaquesJson" :key="itemIndex" class="marginSlide">
-      <div>
-        <span v-if="item.event.images.length === 2">
-          <img :src="item.event.images[1].url" alt="" class="card-img" />
-        </span>
-        <span v-else>
-          <img src="/src/assets/images/capa-substituta-filme.webp" alt="" class="card-img" />
-        </span>
-        <div id="firstMovie" v-if="itemIndex === 0">
-          <p id="firstDestaque">DESTAQUES</p>
-          <p id="firstName">{{ item.event.title }}</p>
-          <div class="firstGenresDuration">
-            <span v-for="(genres, genresIndex) in item.event.genres" :key="genresIndex">
-              {{ genres }} -
-            </span>
-            <span>{{ item.event.duration }} minutos</span>
+        <div class="widthLi">
+          <span v-if="item.event.images.length === 2">
+            <img :src="item.event.images[1].url" alt="" class="card-img" />
+          </span>
+          <span v-else id="span-alternativo">
+            <img src="/src/assets/images/banner-substituto-filme.jpg" alt="" class="card-img" />
+          </span>
+          <div id="firstMovie" v-if="itemIndex === 0">
+            <p id="firstDestaque">DESTAQUES</p>
+            <p id="firstName">{{ item.event.title }}</p>
+            <div class="firstGenresDuration">
+              <span v-for="(genres, genresIndex) in item.event.genres" :key="genresIndex">
+                {{ genres }} -
+              </span>
+              <span>{{ item.event.duration }} minutos</span>
+            </div>
+            <div id="firstVejaMais">
+              <router-link to="tela-filme" @click="movieStore.indexFilme = null; movieStore.optionFilme = 'cartaz'; movieStore.titleFilme = item.event.title"><i class="fa fa-film"></i>Veja mais</router-link>
+            </div>
           </div>
           <div id="firstVejaMais">
             <router-link to="tela-filme"><i class="fa fa-film"></i>Veja mais</router-link>
           </div>
         </div>
 
-        <div class="otherMovies" v-else>
-          <p class="msgDestaque">DESTAQUES</p>
-          <p class="nameFilm">{{ item.event.title }}</p>
-          <div class="genresDuration">
-            <span v-for="(genres, genresIndex) in item.event.genres" :key="genresIndex">
-              {{ genres }} -
-            </span>
-            <span>{{ item.event.duration }} minutos</span>
-          </div>
-          <div class="vejaMais">
-            <router-link to="tela-filme"><i class="fa fa-film"></i>Veja mais</router-link>
+          <div class="otherMovies" v-else>
+            <p class="msgDestaque">DESTAQUES</p>
+            <p class="nameFilm">{{ item.event.title }}</p>
+            <div class="genresDuration">
+              <span v-for="(genres, genresIndex) in item.event.genres" :key="genresIndex">
+                {{ genres }} -
+              </span>
+              <span>{{ item.event.duration }} minutos</span>
+            </div>
+            <div class="vejaMais">
+              <router-link to="tela-filme" @click="movieStore.indexFilme = null; movieStore.optionFilme = 'cartaz'; movieStore.titleFilme = item.event.title"><i class="fa fa-film"></i>Veja mais</router-link>
+            </div>
           </div>
         </div>
       </div>
@@ -65,6 +70,9 @@ import { ref, onMounted } from 'vue'
 import axios from 'axios'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import { useMovieStore } from '../stores/movie'
+
+const movieStore = useMovieStore();
 
 let linkCdn = document.createElement('link')
 linkCdn.setAttribute('rel', 'stylesheet')
@@ -186,7 +194,23 @@ const hover = ref({ showElement: false })
 #firstVejaMais > a > i, .vejaMais > a > i  {
   margin-right: 8px;
 }
-  @media screen and (max-width: 425px) {
+
+.widthLi {
+  width: 100%;
+}
+
+#span-alternativo {
+  display: inline-block;
+  width: 100%;
+  height: 399px;
+}
+
+#span-alternativo > img {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 425px) {
   #firstDestaque,
   .msgDestaque,
   #firstName,
@@ -252,7 +276,7 @@ const hover = ref({ showElement: false })
 
   .firstGenresDuration,
   .genresDuration {
-    top: 120px; 
+    top: 120px; /* Ajuste conforme necessário */
   }
 
   #firstVejaMais,

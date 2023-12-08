@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="copyFooter">
     <div class="row">
       <div class="col-12">
         <p class="text-center">© 2023 GNC - Todos os direitos reservados</p>

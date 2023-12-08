@@ -4,7 +4,7 @@
       <div id="nav-principal">
         <div id="bloco1">
           <router-link to="/"><img src="/src/assets/images/gnc-logo.png" alt="" id="logo"></router-link>
-          <div id="container-shopping">
+          <div id="container-shopping" v-show="pathAtual !== '/tela-filme'">;
             <span>
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
                   <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
@@ -49,15 +49,28 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useMovieStore } from '../stores/movie'
 
 const selectedShopping = ref("mueller");
+
+const router = useRouter();
+const pathAtual = router.currentRoute.value.path;
+
+const storeMovie = useMovieStore();
+
+storeMovie.cine = selectedShopping.value;
+
+console.log(pathAtual);
 
 // Utilize o defineEmits diretamente para declarar os eventos que serão emitidos
 const emit = defineEmits(['parametroShopping']);
 
 function handleSelectChange(event) {
   selectedShopping.value = event.target.value;
+  storeMovie.cine = event.target.value;
   emit('parametroShopping', selectedShopping.value);
+  // console.log(selectedShopping.value)
 }
 </script>
 
