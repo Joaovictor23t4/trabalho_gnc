@@ -1,5 +1,11 @@
 <template>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <Carousel
     v-bind="settings"
     :transition="1000"
@@ -28,6 +34,10 @@
               <router-link to="tela-filme" @click="movieStore.indexFilme = null; movieStore.optionFilme = 'cartaz'; movieStore.titleFilme = item.event.title"><i class="fa fa-film"></i>Veja mais</router-link>
             </div>
           </div>
+          <div id="firstVejaMais">
+            <router-link to="tela-filme"><i class="fa fa-film"></i>Veja mais</router-link>
+          </div>
+        </div>
 
           <div class="otherMovies" v-else>
             <p class="msgDestaque">DESTAQUES</p>
@@ -43,6 +53,7 @@
             </div>
           </div>
         </div>
+      </div>
     </Slide>
 
     <template #addons>
@@ -63,25 +74,27 @@ import { useMovieStore } from '../stores/movie'
 
 const movieStore = useMovieStore();
 
-let linkCdn = document.createElement("link");
-linkCdn.setAttribute('rel', 'stylesheet');
-linkCdn.setAttribute('href', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==');
-linkCdn.setAttribute('crossorigin', 'anonymous');
-linkCdn.setAttribute('referrerpolicy', 'no-referrer');
+let linkCdn = document.createElement('link')
+linkCdn.setAttribute('rel', 'stylesheet')
+linkCdn.setAttribute(
+  'href',
+  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=='
+)
+linkCdn.setAttribute('crossorigin', 'anonymous')
+linkCdn.setAttribute('referrerpolicy', 'no-referrer')
 
-document.head.appendChild(linkCdn);
+document.head.appendChild(linkCdn)
 
-const destaquesJson = ref([]);
+const destaquesJson = ref([])
 
 onMounted(async () => {
   let response = await axios.get(
     `https://api-content.ingresso.com/v0/templates/highlights/16?partnership=joaovictorpr`
   )
 
-  destaquesJson.value = response.data;
+  destaquesJson.value = response.data
 
-
-  console.log(destaquesJson.value);
+  console.log(destaquesJson.value)
 })
 
 const settings = ref({
