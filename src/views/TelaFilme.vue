@@ -43,7 +43,10 @@
         </section>
     </section>
 
-    <OptionFilme :title="responseFilme.title" :idCinema="nameCine"/>
+    <OptionFilme :title="responseFilme.title" :idCinema="nameCine" :aboutFilmeInfo="responseFilme"/>
+
+    <FooterVue />
+    <FooterCopy />
   </div>
 </template>
 
@@ -52,7 +55,11 @@ import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import Header from '../components/Header.vue';
 import OptionFilme from '../components/optionFilme.vue'
+import FooterVue from '../components/FooterVue.vue';
+import FooterCopy from '../components/FooterCopy.vue';
 import { useMovieStore } from '../stores/movie';
+import FooterVueVue from '../components/FooterVue.vue';
+import FooterCopyVue from '../components/FooterCopy.vue';
 
 const movieStore = useMovieStore()
 const indexFilme = ref(movieStore.indexFilme);
@@ -172,5 +179,10 @@ consultarApi();
 
 #textoCinema > span {
   text-decoration: underline;
+}
+
+.copyFooter {
+  height: 100px;
+  min-height: auto;
 }
 </style>
