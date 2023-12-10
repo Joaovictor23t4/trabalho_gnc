@@ -96,7 +96,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import { useMovieStore } from '../stores/movie';
 
@@ -108,7 +108,6 @@ const props = defineProps({
 });
 const infoData = ref([]);
 const aboutFilme = ref([]);
-const sessionFilme = ref([]);
 const typeInfo = ref('sessions');
 const paragraphSession = ref(null);
 const paragraphAbout = ref(null);
@@ -212,10 +211,6 @@ function changeInfoMovies(element) {
   }
 }
 
-function teste() {
-  console.log(infoData.value, Object.keys(infoData.value).length === 0)
-}
-
 function changeDay(indiceClick) {
   console.log(ulDays.value.children[indiceClick].className);
   let indiceChosen = 0;
@@ -287,15 +282,15 @@ sessionsSubtitled.value.sort((a, b) => {
   console.log(sessionsSubtitled.value);
 }
 
-function changeTrailer (option) {
-  if (option === 'dubbed') {
-    urlTrailer.value.push(aboutFilme.value.trailers[1].url);
-    urlTrailer.value.push(aboutFilme.value.trailers[1].embeddedUrl);
-  } else {
-    urlTrailer.value.push(aboutFilme.value.trailers[0].url);
-    urlTrailer.value.push(aboutFilme.value.trailers[0].embeddedUrl);
-  }
-}
+// function changeTrailer (option) {
+//   if (option === 'dubbed') {
+//     urlTrailer.value.push(aboutFilme.value.trailers[1].url);
+//     urlTrailer.value.push(aboutFilme.value.trailers[1].embeddedUrl);
+//   } else {
+//     urlTrailer.value.push(aboutFilme.value.trailers[0].url);
+//     urlTrailer.value.push(aboutFilme.value.trailers[0].embeddedUrl);
+//   }
+// }
 
 console.log(urlTrailer.value)
 </script>
