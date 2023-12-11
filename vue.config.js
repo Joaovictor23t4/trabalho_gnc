@@ -1,5 +1,1 @@
-module.exports = {
-    publicPath: process.env.NODE_ENV === 'production'
-      ? '/trabalho_gnc/'
-      : '/'
-  }
+export const publicPath = '/trabalho_gnc/';
