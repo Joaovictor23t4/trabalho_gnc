@@ -8,7 +8,7 @@ cd dist
 
 git init
 git add -A
-git commit -m 'deploy'
+git commit -m 'New Deployment'
 git push -f git@github.com:Joaovictor23t4/trabalho_gnc.git master:gh-pages
 
 cd -
