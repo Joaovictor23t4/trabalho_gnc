@@ -106,7 +106,11 @@ function handleSelectChange(event) {
   display: flex;
   flex-direction: column;
 }
-
+header {
+  position: sticky !important;
+  top: 0;
+  z-index: 1000;
+}
 #nav-principal {
   display: flex;
   justify-content: space-around;
