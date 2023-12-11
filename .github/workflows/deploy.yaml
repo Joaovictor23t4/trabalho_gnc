@@ -1,4 +1,3 @@
-// .github/workflows/deploy.yaml
 name: deploy
 on:
   push:
