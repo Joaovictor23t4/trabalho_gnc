@@ -8,12 +8,12 @@
     @mouseleave="showElement = false"
   >
     <Slide v-for="(item, itemIndex) in destaquesJson" :key="itemIndex" class="marginSlide">
-        <div>
+        <div class="widthLi">
           <span v-if="item.event.images.length === 2">
             <img :src="item.event.images[1].url" alt="" class="card-img" />
           </span>
-          <span v-else>
-            <img src="/src/assets/images/capa-substituta-filme.webp" alt="" class="card-img" />
+          <span v-else id="span-alternativo">
+            <img src="/src/assets/images/banner-substituto-filme.jpg" alt="" class="card-img" />
           </span>
           <div id="firstMovie" v-if="itemIndex === 0">
             <p id="firstDestaque">DESTAQUES</p>
@@ -25,7 +25,7 @@
               <span>{{ item.event.duration }} minutos</span>
             </div>
             <div id="firstVejaMais">
-              <router-link to="tela-filme"><i class="fa fa-film"></i>Veja mais</router-link>
+              <router-link to="tela-filme" @click="movieStore.indexFilme = null; movieStore.optionFilme = 'cartaz'; movieStore.titleFilme = item.event.title"><i class="fa fa-film"></i>Veja mais</router-link>
             </div>
           </div>
 
@@ -39,7 +39,7 @@
               <span>{{ item.event.duration }} minutos</span>
             </div>
             <div class="vejaMais">
-              <router-link to="tela-filme"><i class="fa fa-film"></i>Veja mais</router-link>
+              <router-link to="tela-filme" @click="movieStore.indexFilme = null; movieStore.optionFilme = 'cartaz'; movieStore.titleFilme = item.event.title"><i class="fa fa-film"></i>Veja mais</router-link>
             </div>
           </div>
         </div>
@@ -59,6 +59,9 @@ import { ref, onMounted } from 'vue'
 import axios from 'axios'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import { useMovieStore } from '../stores/movie'
+
+const movieStore = useMovieStore();
 
 let linkCdn = document.createElement("link");
 linkCdn.setAttribute('rel', 'stylesheet');
@@ -68,16 +71,17 @@ linkCdn.setAttribute('referrerpolicy', 'no-referrer');
 
 document.head.appendChild(linkCdn);
 
-const destaquesJson = ref([])
+const destaquesJson = ref([]);
 
 onMounted(async () => {
   let response = await axios.get(
     `https://api-content.ingresso.com/v0/templates/highlights/16?partnership=joaovictorpr`
   )
 
-  destaquesJson.value = response.data
+  destaquesJson.value = response.data;
 
-  console.log(destaquesJson.value)
+
+  console.log(destaquesJson.value);
 })
 
 const settings = ref({
@@ -177,6 +181,22 @@ const hover = ref({ showElement: false })
 #firstVejaMais > a > i, .vejaMais > a > i  {
   margin-right: 8px;
 }
+
+.widthLi {
+  width: 100%;
+}
+
+#span-alternativo {
+  display: inline-block;
+  width: 100%;
+  height: 399px;
+}
+
+#span-alternativo > img {
+  width: 100%;
+  height: 100%;
+}
+
 @media screen and (max-width: 425px) {
   #firstDestaque,
   .msgDestaque,

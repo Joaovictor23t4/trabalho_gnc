@@ -181,6 +181,8 @@ button {
 #email,
 #senha {
   color: white !important;
+  font-size: 0.8em;
+  padding: 0 3px;
 }
 
 .labelInput {
@@ -197,27 +199,10 @@ button {
   font-size: 12px;
   color: #018d5c;
 }
-@media (max-width: 425px) {
-  .container {
-    padding: 20px;
-  }
 
-  .row {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .col-sm-4,
-  .col-sm-8 {
-    width: 100%;
-    border-radius: 0;
-  }
-  .col-sm-4 {
-    display: none;
-  }
-  .col-sm-8 {
-    border-radius: 10px;
-  }
+#esqueceuSenha {
+  display: inline-block;
+  margin-top: 10px;
 }
 
 /* Media query for screens between 425px and 768px */
@@ -266,6 +251,75 @@ button {
 
   .col-sm-8 {
     width: 70%;
+  }
+}
+
+@media (max-width: 425px) {
+  .container {
+    padding: 20px;
+  }
+
+  .row {
+    flex-direction: column;
+    width: 80%!important;
+  }
+
+  .col-sm-4,
+  .col-sm-8 {
+    width: 100%;
+    border-radius: 0;
+  }
+  .col-sm-4 {
+    display: none;
+  }
+  .col-sm-8 {
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 375px) {
+        .container {
+      padding: 20px;
+    }
+  
+    .row {
+      flex-direction: column;
+      width: 90%!important;
+    }
+  
+    .col-sm-4,
+    .col-sm-8 {
+      width: 100%;
+      border-radius: 0;
+    }
+    .col-sm-4 {
+      display: none;
+    }
+    .col-sm-8 {
+      border-radius: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .container {
+    padding: 20px;
+  }
+
+  .row {
+    flex-direction: column;
+    width: 100%!important;
+  }
+
+  .col-sm-4,
+  .col-sm-8 {
+    width: 100%;
+    border-radius: 0;
+  }
+  .col-sm-4 {
+    display: none;
+  }
+  .col-sm-8 {
+    border-radius: 10px;
   }
 }
 </style>
