@@ -76,6 +76,16 @@
             <button>Contato</button>
           </router-link>
         </div>
+         <div id="input_group">
+          <router-link to="/cadastro" class="router">
+            <button>Cadastre-se</button>
+          </router-link>
+        </div>
+         <div id="input_group">
+          <router-link to="/login" class="router">
+            <button>Login</button>
+          </router-link>
+        </div>
       </div>
     </div>
   </footer>
