@@ -17,7 +17,7 @@
           </span>
           <div id="firstMovie" v-if="itemIndex === 0">
             <p id="firstDestaque">DESTAQUES</p>
-            <p id="firstName">{{ item.event.title }}</p>
+            <p id="firstName">{{ truncateTitle(item.event.title) }}</p>
             <div class="firstGenresDuration">
               <span v-for="(genres, genresIndex) in item.event.genres" :key="genresIndex">
                 {{ genres }} -
@@ -31,7 +31,7 @@
 
           <div class="otherMovies" v-else>
             <p class="msgDestaque">DESTAQUES</p>
-            <p class="nameFilm">{{ item.event.title }}</p>
+            <p class="nameFilm">{{ truncateTitle(item.event.title) }}</p>
             <div class="genresDuration">
               <span v-for="(genres, genresIndex) in item.event.genres" :key="genresIndex">
                 {{ genres }} -
@@ -89,6 +89,14 @@ const settings = ref({
   snapAlign: 'center'
 })
 
+function truncateTitle(title) {
+  const maxLength = 23;
+    if (title.length > maxLength) {
+      return `${title.substring(0, maxLength)}...`;
+    }
+    return title;
+};
+
 const hover = ref({ showElement: false })
 </script>
 
@@ -140,8 +148,9 @@ const hover = ref({ showElement: false })
   top: 110px;
   left: 60px;
   text-align: left;
-  font-size: 30px;
+  font-size: 40px;
   color: #FDFDFD;
+  word-break: inherit;
 }
 
 .firstGenresDuration {
@@ -158,7 +167,7 @@ const hover = ref({ showElement: false })
 
 .genresDuration {
   position: absolute;
-  top: 160px;
+  top: 170px;
   left: 65px;
   color: #6e728b;
   font-weight: 600;
@@ -173,7 +182,7 @@ const hover = ref({ showElement: false })
 
 .vejaMais {
   position: absolute;
-  top: 200px;
+  top: 220px;
   left: 63px;
   font-size: 20px;
 }
@@ -197,84 +206,31 @@ const hover = ref({ showElement: false })
   height: 100%;
 }
 
-@media screen and (max-width: 425px) {
-  #firstDestaque,
-  .msgDestaque,
-  #firstName,
-  .nameFilm,
-  .firstGenresDuration,
-  .genresDuration,
-  #firstVejaMais,
-  .vejaMais {
-    font-size: 14px;
+@media screen and (max-width: 1024px) {
+  #firstVejaMais, .vejaMais {
+    top: 265px;
   }
-  
-  .firstGenresDuration,
-  .genresDuration {
-    top: 40px; /* Ajuste conforme necessário */
+
+  .firstGenresDuration, .genresDuration {
+    top: 210px;
   }
-  
-  #firstVejaMais,
-  .vejaMais {
-    font-size: 16px; /* Ajuste conforme necessário */
+
+  #firstName, .nameFilm {
+    top: 140px;
+  }
+
+  #firstDestaque, .msgDestaque {
+    top: 110px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  #firstDestaque,
-  .msgDestaque,
-  #firstName,
-  .nameFilm,
-  .firstGenresDuration,
-  .genresDuration,
-  #firstVejaMais,
-  .vejaMais {
-    position: static;
-    text-align: center;
-  }
-  
-  .firstGenresDuration,
-  .genresDuration {
-    top: 10px; /* Ajuste conforme necessário */
-  }
+
 }
-@media screen and (max-width: 1024px) {
-  #firstDestaque,
-  .msgDestaque,
-  #firstName,
-  .nameFilm,
-  .firstGenresDuration,
-  .genresDuration,
-  #firstVejaMais,
-  .vejaMais {
-    font-size: 18px; /* Ajuste conforme necessário */
-  }
 
-  #firstDestaque,
-  .msgDestaque {
-    top: 40px; /* Ajuste conforme necessário */
-  }
+@media screen and (max-width: 425px) {
+  #firstDestaque, .msgDestaque {
 
-  #firstName,
-  .nameFilm {
-    font-size: 30px; /* Ajuste conforme necessário */
-    top: 70px; /* Ajuste conforme necessário */
-  }
-
-  .firstGenresDuration,
-  .genresDuration {
-    top: 120px; /* Ajuste conforme necessário */
-  }
-
-  #firstVejaMais,
-  .vejaMais {
-    top: 180px; /* Ajuste conforme necessário */
-    font-size: 24px; /* Ajuste conforme necessário */
-  }
-
-  #firstVejaMais > a > i,
-  .vejaMais > a > i {
-    margin-right: 5px; /* Ajuste conforme necessário */
   }
 }
 </style>

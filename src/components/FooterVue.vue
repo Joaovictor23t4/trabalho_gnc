@@ -58,16 +58,6 @@
         </li>
         <li>
           <iframe v-if="store.cine === 'mueller'"
-            :src="srcUrl[0].src"
-            width="600"
-            height="450"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-
-          <iframe v-else
             :src="srcUrl[1].src"
             width="600"
             height="450"
@@ -76,6 +66,14 @@
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
+          <iframe v-else 
+            :src="srcUrl[0].src" 
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
         </li>
       </ul>
       <div id="footer_subscribe">
@@ -92,19 +90,18 @@
 </template>
 
 <script setup>
-import { useMovieStore } from '../stores/movie';
-
-const srcUrl = [{
-  name: 'Mueller',
-  src: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.704692565858!2d-48.85168052370872!3d-26.303671677015405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94deb047df2b28ef%3A0xbf208682735a91d!2sShopping%20Mueller%20Joinville!5e0!3m2!1spt-BR!2sbr!4v1702302370940!5m2!1spt-BR!2sbr'
-}, {
-  name: 'Garten',
-  src: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.284935080505!2d-48.85528182537082!3d-26.252414265937823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94deafa4c5bcc777%3A0x38e98c600be478f4!2sGarten%20Shopping!5e0!3m2!1spt-BR!2sbr!4v1700860586200!5m2!1spt-BR!2sbr'
-}];
+import { useMovieStore } from '../stores/movie'
 
 const store = useMovieStore();
-</script>
 
+const srcUrl = [{
+  name: "garten",
+  src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.284935080505!2d-48.85528182537082!3d-26.252414265937823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94deafa4c5bcc777%3A0x38e98c600be478f4!2sGarten%20Shopping!5e0!3m2!1spt-BR!2sbr!4v1700860586200!5m2!1spt-BR!2sbr"
+}, {
+  name: "mueller",
+  src: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14306.818767426446!2d-48.8491056!3d-26.3036717!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94deb047df2b28ef%3A0xbf208682735a91d!2sShopping%20Mueller%20Joinville!5e0!3m2!1spt-BR!2sbr!4v1702293236372!5m2!1spt-BR!2sbr"
+}];
+</script>
 <style scoped>
 #logofooter {
   border-radius: 180px;
