@@ -47,8 +47,12 @@
     </Slide>
 
     <template #addons>
-      <div v-show="showElement">
+      <div v-show="showElement && widthBody >= 1024">
         <Navigation class="hidden-element" :class="{ show: showElement }" />
+      </div>
+      
+      <div v-show="widthBody <= 768">
+        <Navigation />
       </div>
       <Pagination />
     </template>
@@ -56,7 +60,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import axios from 'axios'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
@@ -212,19 +216,19 @@ const hover = ref({ showElement: false })
 
 @media screen and (max-width: 1024px) {
   #firstVejaMais, .vejaMais {
-    top: 265px;
+    top: 165px;
   }
 
   .firstGenresDuration, .genresDuration {
-    top: 210px;
+    top: 120px;
   }
 
   #firstName, .nameFilm {
-    top: 140px;
+    top: 60px;
   }
 
   #firstDestaque, .msgDestaque {
-    top: 110px;
+    top: 35px;
   }
 }
 
@@ -235,8 +239,103 @@ const hover = ref({ showElement: false })
 }
 
 @media screen and (max-width: 425px) {
-  #firstDestaque, .msgDestaque {
+  .marginSlide {
+    margin: 0;
+  }
+  #firstVejaMais, .vejaMais {
+    top: 110px;
+    left: 45px;
+  }
 
+  .firstGenresDuration, .genresDuration {
+    top: 80px;
+    left: 45px;
+  }
+
+  #firstName, .nameFilm {
+    top: 40px;
+    left: 45px;
+    font-size: 25px;
+  }
+
+  #firstDestaque {
+    top: 15px;
+    left: 25px;
+  }
+
+  .vejaMais {
+    top: 110px;
+    left: 55px;
+  }
+
+  .genresDuration {
+    top: 80px;
+    left: 55px;
+  }
+
+  .msgDestaque {
+    top: 15px;
+    left: 35px;
+  }
+
+  .nameFilm {
+    top: 40px;
+    left: 55px;
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #firstVejaMais, .vejaMais {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .marginSlide {
+    margin: 0;
+  }
+  #firstVejaMais, .vejaMais {
+    top: 90px;
+    left: 50px;
+  }
+
+  .firstGenresDuration, .genresDuration {
+    top: 65px;
+    left: 50px;
+    font-size: 14px;
+  }
+
+  #firstName, .nameFilm {
+    top: 35px;
+    left: 50px;
+    font-size: 20px;
+  }
+
+  #firstDestaque {
+    top: 15px;
+    left: 25px;
+  }
+
+  .vejaMais {
+    top: 85px;
+    left: 55px;
+  }
+
+  .genresDuration {
+    top: 60px;
+    left: 55px;
+  }
+
+  .msgDestaque {
+    top: 10px;
+    left: 35px;
+  }
+
+  .nameFilm {
+    top: 30px;
+    left: 55px;
+    font-size: 20px;
   }
 }
 </style>
