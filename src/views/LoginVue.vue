@@ -43,6 +43,10 @@
                 />
                 <label for="senha" class="labelInput">Senha</label>
               </div>
+              <div class="checkbox">
+                <input type="checkbox" name="" id="" />
+                <label for="">Manter-me logado</label>
+              </div>
               <router-link to="/">
                 <button type="button" class="btn btn-outline-danger">Entrar</button>
               </router-link>
@@ -146,7 +150,16 @@ h1 {
   background-color: #212529;
   color: white;
 }
-
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.form input {
+  width: 10%;
+  margin-bottom: 10px;
+}
 h3 {
   color: white !important;
 }
@@ -263,7 +276,7 @@ button {
 
   .row {
     flex-direction: column;
-    width: 80%!important;
+    width: 80% !important;
   }
 
   .col-sm-4,
@@ -280,36 +293,36 @@ button {
 }
 
 @media (max-width: 375px) {
-        .container {
-      padding: 20px;
-    }
-  
-    .row {
-      flex-direction: column;
-      width: 90%!important;
-    }
-  
-    .col-sm-4,
-    .col-sm-8 {
-      width: 100%;
-      border-radius: 0;
-    }
-    .col-sm-4 {
-      display: none;
-    }
-    .col-sm-8 {
-      border-radius: 10px;
-    }
-}
-
-@media (max-width: 320px) {
-    .container {
+  .container {
     padding: 20px;
   }
 
   .row {
     flex-direction: column;
-    width: 100%!important;
+    width: 90% !important;
+  }
+
+  .col-sm-4,
+  .col-sm-8 {
+    width: 100%;
+    border-radius: 0;
+  }
+  .col-sm-4 {
+    display: none;
+  }
+  .col-sm-8 {
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    padding: 20px;
+  }
+
+  .row {
+    flex-direction: column;
+    width: 100% !important;
   }
 
   .col-sm-4,
