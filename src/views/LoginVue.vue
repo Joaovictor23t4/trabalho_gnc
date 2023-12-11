@@ -44,7 +44,7 @@
               <router-link to="/">
                 <button type="button" class="btn btn-outline-danger">Entrar</button>
               </router-link>
-              <router-link to="/minha-conta/esqueci-senha">Esqueceu a senha?</router-link>
+              <router-link to="/esqueci-senha">Esqueceu a senha?</router-link>
               <hr />
               <router-link to="/cadastro">Não tem uma conta? Cadastre-se</router-link>
             </form>

@@ -74,6 +74,7 @@
           </fieldset>
         </form>
       </div>
+    </div>
 </main>
   <FooterCopy />
 </template>
