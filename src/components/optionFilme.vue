@@ -126,8 +126,10 @@ onMounted(async () => {
 
   let dataGet = await axios.get(`https://api-content.ingresso.com/v0/sessions/city/16/theater/${nameForIdCine}?partnership=joaovictorpr`);
 
-  infoData.value = dataGet.data;
-
+  for (let c = 0; c < 3; c++) {
+    infoData.value.push(dataGet.data[c]);
+  }
+  
   console.log(infoData.value);
 
   paragraphSession.value.classList.add('chosen');
