@@ -39,7 +39,22 @@
                 <i class="bi bi-person-circle"></i>
               </svg>
             </span>
-            <button id="btnUsuario">Entre ou cadastre-se</button>
+            <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Entre ou cadastre-se
+              </button>
+              <ul class="dropdown-menu">
+                <router-link to="/cadastro" id="btnUsuario">
+                  <li class="dropdown-item">Cadastre-se</li>
+                </router-link>
+                <router-link to="/login" id="btnUsuario">
+                  <li class="dropdown-item">Entrar</li>
+                </router-link>
+              </ul>
           </div>
           </div>
       </div>
@@ -107,7 +122,33 @@ function handleSelectChange(event) {
   width: 40px;
   height: 40px;
 }
-
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: transparent;
+}
+button:hover {
+  background-color: rgb(46, 46, 46);
+  border: transparent;
+}
+.btn.show {
+  background-color: transparent;
+  border: transparent;
+}
+.dropdown-menu {
+  background-color: #161F2E;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+.dropdown-item {
+  cursor: pointer;
+  color: #ffffff;
+  background-color: transparent;
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+}
 #bloco3 {
   display: flex;
   align-items: center;

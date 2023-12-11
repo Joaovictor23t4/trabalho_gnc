@@ -19,7 +19,9 @@
         <div class="col-sm-4">
           <img src="../assets/images/gnc-logo.png" alt="" id="logo" />
           <h3>Não tem uma conta? Crie agora mesmo!</h3>
-          <button type="button" class="btn btn-outline-secondary">Criar conta!</button>
+          <router-link to="/cadastro">
+            <button type="button" class="btn btn-outline-danger">Criar conta!</button>
+          </router-link>
         </div>
         <div class="col-sm-8">
           <h1>Bem vindo de volta!</h1>
