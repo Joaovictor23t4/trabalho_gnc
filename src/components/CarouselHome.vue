@@ -1,6 +1,7 @@
+<!-- eslint-disable no-unused-vars -->
 <template>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <Carousel
+  <Carousel ref="carouselElement"
     v-bind="settings"
     :transition="1000"
     class="image"
@@ -12,7 +13,7 @@
           <span v-if="item.event.images.length === 2">
             <img :src="item.event.images[1].url" alt="" class="card-img" />
           </span>
-          <span v-else id="span-alternativo">
+          <span v-else>
             <img src="/src/assets/images/banner-substituto-filme.jpg" alt="" class="card-img" />
           </span>
           <div id="firstMovie" v-if="itemIndex === 0">
@@ -72,6 +73,8 @@ linkCdn.setAttribute('referrerpolicy', 'no-referrer');
 document.head.appendChild(linkCdn);
 
 const destaquesJson = ref([]);
+const widthBody = ref(document.querySelector('body').offsetWidth);
+console.log(widthBody.value);
 
 onMounted(async () => {
   let response = await axios.get(
@@ -85,7 +88,7 @@ onMounted(async () => {
 })
 
 const settings = ref({
-  itemsToShow: 1.5,
+  itemsToShow: (widthBody.value <= 768) ? 0.9 : 1.5,
   snapAlign: 'center'
 })
 
@@ -97,6 +100,7 @@ function truncateTitle(title) {
     return title;
 };
 
+// eslint-disable-next-line no-unused-vars
 const hover = ref({ showElement: false })
 </script>
 
@@ -225,7 +229,9 @@ const hover = ref({ showElement: false })
 }
 
 @media screen and (max-width: 768px) {
-
+  .card-img {
+    border-radius: 0;
+  }
 }
 
 @media screen and (max-width: 425px) {
