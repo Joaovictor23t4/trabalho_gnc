@@ -1,13 +1,15 @@
 <template>
-  <Header @parametroShopping="optionSelectShopping"/>
+  <main>
+    <Header @parametroShopping="optionSelectShopping"/>
 
-  <CarouselHome />
+    <CarouselHome />
 
-  <ListCard />
+    <ListCard />
 
-  <Footer />
+    <Footer />
 
-  <FooterCopy />
+    <FooterCopy />
+  </main>
 </template>
 
 <script setup>
@@ -39,6 +41,7 @@ onMounted( async () => {
     // console.log(valorApi.value);
 });
 
+// eslint-disable-next-line no-unused-vars
 watch(valorShopping, async (newValue, oldValue) => {
   let response;
 
