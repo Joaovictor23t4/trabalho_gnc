@@ -73,6 +73,7 @@ function changeOptionMovies(chosenOption) {
     option.value = chosenOption;
 }
 
+// eslint-disable-next-line no-unused-vars
 watch(option, async (newValue, oldValue) => {
     let response;
 

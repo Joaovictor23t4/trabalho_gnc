@@ -1,6 +1,7 @@
+<!-- eslint-disable no-unused-vars -->
 <template>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <Carousel
+  <Carousel ref="carouselElement"
     v-bind="settings"
     :transition="1000"
     class="image"
@@ -12,12 +13,12 @@
           <span v-if="item.event.images.length === 2">
             <img :src="item.event.images[1].url" alt="" class="card-img" />
           </span>
-          <span v-else id="span-alternativo">
+          <span v-else>
             <img src="/src/assets/images/banner-substituto-filme.jpg" alt="" class="card-img" />
           </span>
           <div id="firstMovie" v-if="itemIndex === 0">
             <p id="firstDestaque">DESTAQUES</p>
-            <p id="firstName">{{ item.event.title }}</p>
+            <p id="firstName">{{ truncateTitle(item.event.title) }}</p>
             <div class="firstGenresDuration">
               <span v-for="(genres, genresIndex) in item.event.genres" :key="genresIndex">
                 {{ genres }} -
@@ -31,7 +32,7 @@
 
           <div class="otherMovies" v-else>
             <p class="msgDestaque">DESTAQUES</p>
-            <p class="nameFilm">{{ item.event.title }}</p>
+            <p class="nameFilm">{{ truncateTitle(item.event.title) }}</p>
             <div class="genresDuration">
               <span v-for="(genres, genresIndex) in item.event.genres" :key="genresIndex">
                 {{ genres }} -
@@ -72,6 +73,8 @@ linkCdn.setAttribute('referrerpolicy', 'no-referrer');
 document.head.appendChild(linkCdn);
 
 const destaquesJson = ref([]);
+const widthBody = ref(document.querySelector('body').offsetWidth);
+console.log(widthBody.value);
 
 onMounted(async () => {
   let response = await axios.get(
@@ -85,10 +88,19 @@ onMounted(async () => {
 })
 
 const settings = ref({
-  itemsToShow: 1.5,
+  itemsToShow: (widthBody.value <= 768) ? 0.9 : 1.5,
   snapAlign: 'center'
 })
 
+function truncateTitle(title) {
+  const maxLength = 23;
+    if (title.length > maxLength) {
+      return `${title.substring(0, maxLength)}...`;
+    }
+    return title;
+};
+
+// eslint-disable-next-line no-unused-vars
 const hover = ref({ showElement: false })
 </script>
 
@@ -140,8 +152,9 @@ const hover = ref({ showElement: false })
   top: 110px;
   left: 60px;
   text-align: left;
-  font-size: 30px;
+  font-size: 40px;
   color: #FDFDFD;
+  word-break: inherit;
 }
 
 .firstGenresDuration {
@@ -158,7 +171,7 @@ const hover = ref({ showElement: false })
 
 .genresDuration {
   position: absolute;
-  top: 160px;
+  top: 170px;
   left: 65px;
   color: #6e728b;
   font-weight: 600;
@@ -173,7 +186,7 @@ const hover = ref({ showElement: false })
 
 .vejaMais {
   position: absolute;
-  top: 200px;
+  top: 220px;
   left: 63px;
   font-size: 20px;
 }
@@ -197,84 +210,33 @@ const hover = ref({ showElement: false })
   height: 100%;
 }
 
-@media screen and (max-width: 425px) {
-  #firstDestaque,
-  .msgDestaque,
-  #firstName,
-  .nameFilm,
-  .firstGenresDuration,
-  .genresDuration,
-  #firstVejaMais,
-  .vejaMais {
-    font-size: 14px;
+@media screen and (max-width: 1024px) {
+  #firstVejaMais, .vejaMais {
+    top: 265px;
   }
-  
-  .firstGenresDuration,
-  .genresDuration {
-    top: 40px; /* Ajuste conforme necessário */
+
+  .firstGenresDuration, .genresDuration {
+    top: 210px;
   }
-  
-  #firstVejaMais,
-  .vejaMais {
-    font-size: 16px; /* Ajuste conforme necessário */
+
+  #firstName, .nameFilm {
+    top: 140px;
+  }
+
+  #firstDestaque, .msgDestaque {
+    top: 110px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  #firstDestaque,
-  .msgDestaque,
-  #firstName,
-  .nameFilm,
-  .firstGenresDuration,
-  .genresDuration,
-  #firstVejaMais,
-  .vejaMais {
-    position: static;
-    text-align: center;
-  }
-  
-  .firstGenresDuration,
-  .genresDuration {
-    top: 10px; /* Ajuste conforme necessário */
+  .card-img {
+    border-radius: 0;
   }
 }
-@media screen and (max-width: 1024px) {
-  #firstDestaque,
-  .msgDestaque,
-  #firstName,
-  .nameFilm,
-  .firstGenresDuration,
-  .genresDuration,
-  #firstVejaMais,
-  .vejaMais {
-    font-size: 18px; /* Ajuste conforme necessário */
-  }
 
-  #firstDestaque,
-  .msgDestaque {
-    top: 40px; /* Ajuste conforme necessário */
-  }
+@media screen and (max-width: 425px) {
+  #firstDestaque, .msgDestaque {
 
-  #firstName,
-  .nameFilm {
-    font-size: 30px; /* Ajuste conforme necessário */
-    top: 70px; /* Ajuste conforme necessário */
-  }
-
-  .firstGenresDuration,
-  .genresDuration {
-    top: 120px; /* Ajuste conforme necessário */
-  }
-
-  #firstVejaMais,
-  .vejaMais {
-    top: 180px; /* Ajuste conforme necessário */
-    font-size: 24px; /* Ajuste conforme necessário */
-  }
-
-  #firstVejaMais > a > i,
-  .vejaMais > a > i {
-    margin-right: 5px; /* Ajuste conforme necessário */
   }
 }
 </style>

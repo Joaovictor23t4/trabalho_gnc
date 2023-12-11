@@ -79,7 +79,7 @@
 
               <p id="duration">Duração: <br> {{ aboutFilme.duration }} min</p>
 
-              <p id="originalName">Nome original: <br> {{ aboutFilme.title }}</p>
+              <p id="originalName">Nome original: <br> {{ aboutFilme.originalTitle }}</p>
 
               <p id="sinopse">Sinopse: <br> {{ aboutFilme.synopsis }}</p>
 
