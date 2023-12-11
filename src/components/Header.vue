@@ -316,7 +316,7 @@ function handleSelectChange(event) {
   #bloco1 {
     align-items: center;
     gap: 10px;
-    width: 60%%;
+    width: 60%;
   }
 
   #logo {
