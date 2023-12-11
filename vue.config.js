@@ -1,5 +1,4 @@
-// vue.config.js
+// eslint-disable-next-line no-undef
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production' ? 
-    '/vuejs-gh-pages-gh-actions' : '/'
+    publicPath: '/trabalho_gnc'
 }
